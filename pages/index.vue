@@ -1,13 +1,35 @@
 <template>
-  <div class="container mx-auto flex flex-col">
-    <h1 class="text-3xl">Demo</h1>
-    <div  class="w-64 border border-gray-300" :key="index" v-for="(product, index) in products">
-      <span>{{ product.name }}</span>
-      <span>{{ product.desc }}</span>
-      <span>{{ product.price }}</span>
-      <img width="120" :src="product.image" :alt="product.desc" :title="product.name">
-    </div>
-  </div>
+  <main>
+    <section
+      class="index bg-gray-400 flex flex-col justify-center items-center"
+    >
+      <div
+        class="container mx-auto flex flex-col justify-center items-center p-4 lg:p-0"
+      >
+        <h1 class="font-bold text-6xl text-center">Jamstack Store Demo</h1>
+        <p class="text-center">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+          Reprehenderit expedita beatae veritatis rerum et veniam dicta in nulla
+          alias!
+        </p>
+        <n-link to="/" class="bg-black text-white p-2 mt-4 rounded">
+          Button text
+        </n-link>
+      </div>
+    </section>
+    <section class="container mx-auto h-screen p-4 lg:p-0">
+      <h2 class="text-center py-4 text-2xl">Productos recientes</h2>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"
+      >
+        <product
+          v-for="product in products"
+          :key="product.id"
+          :data="product"
+        />
+      </div>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -29,6 +51,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.index {
+  height: 80vh;
+  @apply bg-cover;
+}
 </style>
