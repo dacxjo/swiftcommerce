@@ -16,21 +16,23 @@ collections:
         editor:
           preview: false
         fields:
-          - { label: Título del sitio, name: site_title, widget: string, hint: 'Usado tambien para SEO ON PAGE' }
+          - { label: Título del sitio, name: site_title, widget: string, hint: 'Usado tambien para SEO ON PAGE', required: false }
           - {
               label: Descripción del sitio,
               name: 'site_desc',
               widget: text,
               hint: 'Usado tambien para SEO ON PAGE',
+              required: false
             }
-          - { label: Contenido del título principal (H1), name: hero_title, widget: string }
+          - { label: Contenido del título principal (H1), name: hero_title, widget: string, required: false }
           - {
               label: Contenido del párrafo principal,
               name: hero_desc,
               widget: text,
+              required: false
             }
-          - { label: 'Imagen de fondo principal', name: 'hero_image', widget: 'image', allow_multiple: false }
-          - { label: 'Logo', name: 'logo', widget: 'image', allow_multiple: false }
+          - { label: 'Imagen de fondo principal', name: 'hero_image', widget: 'image', allow_multiple: false, required: false }
+          - { label: 'Logo', name: 'logo', widget: 'image', allow_multiple: false, required: false }
   - label: 'Contenido legal'
     name: 'legal'
     files:
