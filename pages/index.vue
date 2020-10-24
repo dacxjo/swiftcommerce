@@ -1,16 +1,15 @@
 <template>
   <main>
     <section
+      :style="{backgroundImage:`url(${heroImage})`}"
       class="index bg-gray-400 flex flex-col justify-center items-center"
     >
       <div
         class="container mx-auto flex flex-col justify-center items-center p-4 lg:p-0"
       >
-        <h1 class="font-bold text-6xl text-center">Jamstack Store Demo</h1>
+        <h1 class="font-bold text-5xl lg:text-6xl text-center">{{ heroTitle }}</h1>
         <p class="text-center">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          Reprehenderit expedita beatae veritatis rerum et veniam dicta in nulla
-          alias!
+          {{heroDesc}}
         </p>
         <n-link to="/" class="bg-black text-white p-2 mt-4 rounded">
           Button text
@@ -33,6 +32,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'Index',
   head() {
@@ -47,6 +47,13 @@ export default {
     return {
       products,
     }
+  },
+  computed: {
+    ...mapGetters({
+      heroTitle: 'site/getHeroTitle',
+      heroDesc: 'site/getHeroDesc',
+      heroImage: 'site/getHeroImg',
+    }),
   },
 }
 </script>
