@@ -1,12 +1,15 @@
-
 export const state = () => ({
     siteSettings: {},
+    adminLoggedIn: false
 })
 
 export const mutations = {
     setSiteSettings(state, settings) {
         state.siteSettings = settings
     },
+    setAdminLoggedIn(state,isLoggedIn){
+        state.adminLoggedIn = isLoggedIn
+    }
 }
 
 export const getters = {
@@ -19,6 +22,9 @@ export const getters = {
     getHeroImg(state) {
         return state.siteSettings.hero_image ? state.siteSettings.hero_image : ""
     },
+    adminLoggedIn(state) {
+        return state.adminLoggedIn
+    }
 }
 
 export const actions = {
@@ -28,5 +34,5 @@ export const actions = {
             res.slug = key.slice(2, -5)
             return res
         })
-    }
+    },
 }
