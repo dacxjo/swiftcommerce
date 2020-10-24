@@ -16,22 +16,36 @@ collections:
         editor:
           preview: false
         fields:
-          - { label: Site Name, name: sitename, widget: string, hint: 'This is used for the site title' }
+          - { label: Título del sitio, name: site_title, widget: string, hint: 'Usado tambien para SEO ON PAGE' }
           - {
-              label: Site Description,
-              name: sitedescription,
-              widget: string,
-              hint: 'This is used as descriptive text for links that link to this site',
+              label: Descripción del sitio,
+              name: 'site_desc',
+              widget: text,
+              hint: 'Usado tambien para SEO ON PAGE',
             }
+          - { label: Contenido del título principal (H1), name: hero_title, widget: string }
           - {
-              label: Site Language,
-              name: sitelang,
-              widget: string,
-              pattern: ['^[a-z]{2}([-])?([A-Za-z]{2})?$', 'Must match "xx" or "xx-XX" syntax (ex. "en" or "sv-SE")'],
+              label: Contenido del párrafo principal,
+              name: hero_desc,
+              widget: text,
             }
-          # - { label: Site Email, name: siteemail, widget: string, required: false }
-  - name: 'productos'
-    label: 'Productos'
+          - { label: 'Imagen de fondo principal', name: 'hero_image', widget: 'image', allow_multiple: false }
+          - { label: 'Logo', name: 'logo', widget: 'image', allow_multiple: false }
+  - label: 'Contenido legal'
+    name: 'legal'
+    files:
+      - label: 'Términos y condiciones de privacidad'
+        name: 'terminos'
+        file: 'content/site/terms.json'
+        format: 'json'
+        editor:
+          preview: true
+        fields:
+          - { label: Título, name: terms_title, widget: string }
+          - { label: 'Contenido', name: 'terms_content', widget: 'markdown' }
+         
+  - label: 'Productos'
+    name: 'productos'
     format: 'json'
     folder: 'content/productos'
     create: true
