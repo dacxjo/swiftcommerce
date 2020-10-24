@@ -57,12 +57,16 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    '@nuxtjs/markdownit'
   ],
   /*
   ** Content module configuration
   ** See https://content.nuxtjs.org/configuration
   */
   content: {},
+  markdownit: {
+    injected: true
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
