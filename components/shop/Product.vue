@@ -1,10 +1,6 @@
 <template>
-  <div class="flex flex-col items-start relative">
-    <n-link
-      :title="data.name"
-      :to="productURL"
-      class="w-full shadow h-64 rounded z-10 relative"
-    >
+  <div class="block w-full h-64 shadow rounded items-start relative">
+    <n-link :title="data.name" :to="productURL" class="z-10 relative">
       <div class="w-full bg-cover h-64 relative rounded">
         <img
           class="w-full h-full rounded object-contain lg:object-cover"

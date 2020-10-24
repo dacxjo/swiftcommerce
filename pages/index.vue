@@ -19,29 +19,19 @@
           </n-link>
         </div>
       </section>
-      <section class="container mx-auto h-screen p-4 lg:p-0">
-        <h2 class="text-center py-4 text-2xl">Productos recientes</h2>
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"
-        >
-          <product
-            v-for="product in products"
-            :key="product.id"
-            :data="product"
-          />
+      <section
+        class="container mx-auto mt-10 h-screen p-4 lg:p-0 grid grid-cols-3 gap-10"
+      >
+        <div class="bg-gray-200 w-full h-64 col-span-1">
+          <h2>Filter sections</h2>
+        </div>
+        <div class="col-span-2">
+            <product-list :productList="products"></product-list>
         </div>
       </section>
     </template>
     <template v-else>
-      <section class="w-full h-screen flex flex-col justify-center items-center relative">
-          <h2 class="text-6xl text-gray-800">Bienvenido a tu nueva tienda online</h2>
-          <h3>Empieza añadiendo la información de tu nuevo sitio y productos en el <a href="/admin" class="font-semibold text-blue-400">panel de administración</a> </h3>
-          <a href="/admin" class="bg-gray-800 text-white px-4 py-2 rounded mt-4">Empezar ahora</a>
-
-          <div class="absolute bottom-0 right-0 h-10 w-full bg-gray-200 flex items-center justify-center">
-              <p class="text-gray-600 text-xs font-light">¿Tienes dudas o preguntas? Contáctanos en <a target="_blank" class="text-gray-900" href="https://arpentechnologies.com/es/contacto/">Arpen Technologies</a></p>
-          </div>
-      </section>
+      <init-view></init-view>
     </template>
   </main>
 </template>
