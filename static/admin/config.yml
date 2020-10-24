@@ -1,0 +1,48 @@
+backend:
+  name: git-gateway
+  branch: develop
+
+media_folder: static/img
+public_folder: /img
+locale: 'es'
+collections:
+  - label: 'Ajustes del sitio'
+    name: 'ajustes'
+    files:
+      - label: 'Sitio'
+        name: 'sitio'
+        file: 'content/site/settings.json'
+        format: 'json'
+        editor:
+          preview: false
+        fields:
+          - { label: Site Name, name: sitename, widget: string, hint: 'This is used for the site title' }
+          - {
+              label: Site Description,
+              name: sitedescription,
+              widget: string,
+              hint: 'This is used as descriptive text for links that link to this site',
+            }
+          - {
+              label: Site Language,
+              name: sitelang,
+              widget: string,
+              pattern: ['^[a-z]{2}([-])?([A-Za-z]{2})?$', 'Must match "xx" or "xx-XX" syntax (ex. "en" or "sv-SE")'],
+            }
+          # - { label: Site Email, name: siteemail, widget: string, required: false }
+  - name: 'productos'
+    label: 'Productos'
+    format: 'json'
+    folder: 'content/productos'
+    create: true
+    identifier_field: name
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Nombre', name: 'name', widget: 'string' }
+      - { label: 'Descripción', name: 'description', widget: 'string' }
+      - { label: 'Precio', name: 'price', widget: 'number', value_type: "float",min: 1, max: 999 }
+      - { label: 'Imagen principal', name: 'image', widget: 'image', required: true, allow_multiple: false }
+     
+      
