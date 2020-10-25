@@ -20,15 +20,19 @@
         </div>
       </section>
       <section
-        class="container mx-auto mt-10 h-screen p-4 lg:p-0 grid grid-cols-3 gap-10"
+        class="container mx-auto mt-10 h-auto p-4 lg:p-0 grid grid-cols-3 gap-10"
       >
-        <div class="bg-gray-200 w-full h-64 col-span-1">
-          <h2>Filter sections</h2>
+        <div class=" w-full h-64 col-span-1">
+            <div class="flex flex-col">
+              <label for="search">Buscar:</label>
+              <input v-model="query" class="border-b border-r border-gray-300 focus:outline-none mt-2 text-gray-500" type="text" placeholder="Busca un producto">
+            </div>
         </div>
         <div class="col-span-2">
-            <product-list :productList="products"></product-list>
+          <product-list :productList="filteredProducts"></product-list>
         </div>
       </section>
+      <section class="h-screen"></section>
     </template>
     <template v-else>
       <init-view></init-view>
@@ -54,6 +58,11 @@ export default {
       products,
     }
   },
+  data(){
+    return {
+      query:''
+    }
+  },
   computed: {
     ...mapGetters({
       heroTitle: 'site/getHeroTitle',
@@ -61,6 +70,13 @@ export default {
       heroImage: 'site/getHeroImg',
       productsLength: 'shop/getProductsLength',
     }),
+    filteredProducts(){
+      if(this.query){
+        return this.products.filter(r => r.name.toLowerCase().match(this.query.toLowerCase()))
+      }else{
+        return this.products
+      }
+    }
   },
 }
 </script>

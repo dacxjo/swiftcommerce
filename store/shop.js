@@ -14,5 +14,5 @@ export const getters = {
     },
     getProductsLength(state){
         return state.products.length
-    }
+    },
 }

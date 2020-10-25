@@ -1,5 +1,5 @@
 <template>
-  <div class="block w-full h-64 shadow rounded items-start relative">
+  <div class="block w-full h-auto shadow rounded items-start relative">
     <n-link :title="data.name" :to="productURL" class="z-10 relative">
       <div class="w-full bg-cover h-64 relative rounded">
         <img
@@ -10,16 +10,17 @@
         />
       </div>
     </n-link>
-    <span
-      class="py-2 text-sm font-light whitespace-no-wrap t-overflow text-gray-900"
-    >
-      {{ data.name }}</span
-    >
-    <p class="whitespace-no-wrap t-overflow text-xs text-gray-700">
-      {{ data.desc }}
-    </p>
-    <div class="flex justify-between w-full items-center">
-      <span class="text-base font-bold text-yellow-500">{{ data.price }}€</span>
+    <div class="p-2">
+      <span
+        class="py-2 text-sm font-normal whitespace-no-wrap t-overflow text-gray-900"
+      >
+        {{ data.name }}</span
+      >
+      <div class="flex justify-between w-full items-center">
+        <span class="text-base font-bold text-yellow-500"
+          >{{ data.price }}€</span
+        >
+      </div>
     </div>
   </div>
 </template>
