@@ -20,10 +20,10 @@
         </div>
       </section>
       <section
-        class="container mx-auto my-10 h-auto p-4 lg:p-0 grid grid-cols-1 sm:grid-cols-4 gap-10"
+        class="container mx-auto my-10 h-screen p-4 lg:p-0 grid grid-cols-1 sm:grid-cols-4 gap-10"
       >
         <!--TODO: Make search and filter a component -->
-        <div class="w-full h-64 col-span-1 hidden lg:block">
+        <div class="w-full h-64 col-span-1 hidden lg:block  sticky calc-top">
           <div class="flex-col flex">
             <h3 class="text-lg text-gray-800">Buscar</h3>
             <input
@@ -71,7 +71,8 @@
           <product-list :productList="filteredProducts"></product-list>
         </div>
       </section>
-       <section class="w-full bg-gray-200 h-64"></section>
+ 
+      <section class="w-full bg-gray-200 h-64"></section>
     </template>
     <template v-else>
       <init-view></init-view>
@@ -146,5 +147,9 @@ export default {
 .index {
   height: 80vh;
   @apply bg-cover;
+}
+
+.calc-top{
+  top: 6.5rem;
 }
 </style>
