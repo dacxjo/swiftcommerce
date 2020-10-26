@@ -1,12 +1,12 @@
 <template>
-  <main class="my-24 sm:my-32">
+  <main class="py-24 sm:py-32">
     <section class="container mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10  py-4">
         <img
-          class="w-full h-full border border-gray-300"
+          class="w-full object-cover h-full border border-gray-300"
           loading="lazy"
           :src="product.image"
-          alt=""
+          :alt="product.desc"
         />
         <div class="px-5 sm:px-0 flex flex-col justify-center">
           <h1 class="text-4xl font-bold text-center lg:text-left ">{{ product.name }}</h1>

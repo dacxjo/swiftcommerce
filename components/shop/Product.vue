@@ -3,7 +3,7 @@
     <n-link :title="data.name" :to="productURL" class="z-10 relative">
       <div class="w-full bg-cover h-64 relative rounded">
         <img
-          class="w-full h-full rounded object-contain lg:object-cover"
+          class="w-full h-full rounded object-cover lg:object-cover"
           :src="data.image"
           :alt="data.desc"
           loading="lazy"
