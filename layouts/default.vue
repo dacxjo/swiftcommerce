@@ -1,5 +1,6 @@
 <template>
   <div>
+    <netlify-admin-bar v-if="$store.getters['site/adminLoggedIn']" /> 
     <navbar />
     <Nuxt />
     <page-footer />
@@ -11,7 +12,7 @@ export default {
   name: 'Default',
   methods: {
     checkAdminLoggedIn() {
-      let flag = localStorage.getItem('gotrue.user') ? true : falses
+      let flag = localStorage.getItem('gotrue.user') ? true : false
       this.$store.commit('site/setAdminLoggedIn',flag)
     },
   },

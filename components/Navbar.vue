@@ -1,5 +1,6 @@
 <template>
   <nav
+    :class="{'admin-fixed':$store.getters['site/adminLoggedIn']}"
     class="w-full h-16 flex justify-between items-center fixed bg-white z-50"
   >
     <div class="container mx-auto flex justify-between px-4 lg:px-0">
@@ -12,3 +13,10 @@
     </div>
   </nav>
 </template>
+
+
+<style scoped>
+  .admin-fixed{
+    top: 2.5rem;
+  }
+</style>
