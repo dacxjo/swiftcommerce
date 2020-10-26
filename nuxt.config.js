@@ -26,6 +26,9 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'author', href: '/humans.txt' }
     ],
+    script: [
+      { hid: 'identity-netlify', src: "https://identity.netlify.com/v1/netlify-identity-widget.js", defer: true }
+    ]
   },
   /*
   ** Global CSS

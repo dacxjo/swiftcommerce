@@ -88,13 +88,6 @@ import 'vue-slider-component/theme/default.css'
 
 export default {
   name: 'Index',
-  head() {
-    return {
-      script: [
-        { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
-      ],
-    }
-  },
   components: {
     VueSlider,
   },

@@ -15,13 +15,6 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'Terms',
-  head() {
-    return {
-      script: [
-        { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
-      ],
-    }
-  },
   async asyncData({ $content, store }) {
     const terms = await $content('site/terms').fetch()
     return {
