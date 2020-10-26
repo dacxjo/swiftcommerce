@@ -7,7 +7,7 @@
         {{ productList.length }} productos</span
       >
     </div>
-    <div class="grid grid-cols-3 gap-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
       <product
         v-for="product in sortedProductList"
         :key="product.id"

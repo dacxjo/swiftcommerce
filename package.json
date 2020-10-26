@@ -13,7 +13,8 @@
     "@nuxt/content": "^1.5.0",
     "@nuxtjs/markdownit": "^1.2.10",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
-    "nuxt": "^2.14.0"
+    "nuxt": "^2.14.0",
+    "vue-slider-component": "^3.2.9"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^2.1.0",

@@ -13,6 +13,9 @@ export const mutations = {
 }
 
 export const getters = {
+    getSiteTitle(state) {
+        return state.siteSettings.site_title ? state.siteSettings.site_title : "My site"
+     },
     getHeroTitle(state) {
        return state.siteSettings.hero_title ? state.siteSettings.hero_title : "Default title"
     },

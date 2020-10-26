@@ -2,7 +2,7 @@
   <!--TODO: Validate empty settings -->
   <main class="bg-gray-100 ">
     <section
-      class="container mx-auto px-5  h-screen lg:px-0 pt-24"
+      class="container mx-auto px-5 lg:px-0 pt-24"
     >
     <h1 class="text-left text-5xl">{{terms.terms_title || 'Default Title'}}</h1>
     <hr>

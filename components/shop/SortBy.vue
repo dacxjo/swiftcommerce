@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label for="sortby">Ordenar por: </label>
+    <label for="sortby" class="text-gray-800">Ordenar por: </label>
     <select @change="emitSort" class="sortby" name="" id="sortby">
       <option value="A-Z" selected>A-Z</option>
       <option value="p-asc">Precio menor</option>
