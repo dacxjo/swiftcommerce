@@ -14,13 +14,13 @@
           <p class="text-center">
             {{ heroDesc }}
           </p>
-          <n-link to="/" class="bg-black text-white p-2 mt-4 rounded">
+          <n-link to="/" class="bg-black text-white p-2 mt-4">
             Button text
           </n-link>
         </div>
       </section>
       <section
-        class="container mx-auto my-10 h-auto sm:h-screen p-4 lg:p-0 grid grid-cols-1 sm:grid-cols-4 gap-10"
+        class="container mx-auto my-10 h-auto  p-4 lg:p-0 grid grid-cols-1 sm:grid-cols-4 gap-10"
       >
         <!--TODO: Make search and filter a component -->
         <div class="w-full h-64 col-span-1 hidden lg:block  sticky calc-top">

@@ -42,7 +42,7 @@
         </div>
       </div>
     </section>
-    <section class="container mx-auto mt-10">
+    <section class="container mx-auto mt-10 hidden">
         <h2 class="text-center text-4xl font-bold">Productos similares</h2>
         <div class="h-screen bg-gray-300"></div>
     </section>
