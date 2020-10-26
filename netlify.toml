@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/productos"
+  to = "/"
+  status = 301
