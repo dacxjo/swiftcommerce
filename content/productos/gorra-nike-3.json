@@ -3,5 +3,6 @@
   "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nihil, provident dignissimos officia rem unde odit eveniet optio totam iusto et amet, adipisci itaque enim illum similique quis, tenetur quibusdam.",
   "price": 35,
   "image": "/img/ear.jpg",
-  "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nihil, provident dignissimos officia rem unde odit eveniet optio totam iusto et amet, adipisci itaque enim illum similique quis, tenetur quibusdam."
+  "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nihil, provident dignissimos officia rem unde odit eveniet optio totam iusto et amet, adipisci itaque enim illum similique quis, tenetur quibusdam.",
+  "category": "categoria-b"
 }
