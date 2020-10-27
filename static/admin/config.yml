@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: feature/index-ui-layout
+  branch: feature/product-categories
 media_folder: static/img
 public_folder: /img
 locale: "es"
