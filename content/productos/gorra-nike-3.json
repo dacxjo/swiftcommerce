@@ -1,7 +1,8 @@
 {
   "name": "Example product 3",
   "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nihil, provident dignissimos officia rem unde odit eveniet optio totam iusto et amet, adipisci itaque enim illum similique quis, tenetur quibusdam.",
-  "price": 35,
+  "price": 35.99,
   "image": "/img/ear.jpg",
-  "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nihil, provident dignissimos officia rem unde odit eveniet optio totam iusto et amet, adipisci itaque enim illum similique quis, tenetur quibusdam."
+  "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nihil, provident dignissimos officia rem unde odit eveniet optio totam iusto et amet, adipisci itaque enim illum similique quis, tenetur quibusdam.",
+  "category": "categoria-b"
 }
