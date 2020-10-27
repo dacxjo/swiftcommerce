@@ -1,64 +1,130 @@
 backend:
   name: git-gateway
   branch: feature/index-ui-layout
-
 media_folder: static/img
 public_folder: /img
-locale: 'es'
+locale: "es"
+site_url: http://localhost:8888
 collections:
-  - label: 'Ajustes del sitio'
-    name: 'ajustes'
+  - label: "Productos"
+    label_singular: "Producto"
+    description: "Se muestran los productos que tendrás en tu tienda"
+    name: "products"
+    format: "json"
+    folder: "content/productos"
+    create: true
+    identifier_field: name
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Nombre", name: "name", widget: "string" }
+      - { label: "Descripción", name: "description", widget: "string" }
+      - {
+          label: "Precio",
+          name: "price",
+          widget: "number",
+          value_type: "float",
+          min: 1,
+          max: 999,
+        }
+      - {
+          label: "Categoría",
+          name: "category",
+          widget: "relation",
+          collection: "categories",
+          value_field: name,
+          search_fields: ["name"],
+          default: "categories"
+        }
+      - {
+          label: "Imagen principal",
+          name: "image",
+          widget: "image",
+          required: true,
+          allow_multiple: false,
+        }
+
+  - label: "Categorías"
+    label_singular: "Categoría"
+    description: "Agrega o modifica las categorías de tus productos"
+    name: "categories"
+    format: "json"
+    folder: "content/categorias"
+    identifier_field: name
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { label: "Nombre", name: "name", widget: "string" }
+      - { label: "Descripción", name: "description", widget: "string" }
+      - {
+          label: "Imagen categoria",
+          name: "image",
+          widget: "image",
+          required: false,
+          allow_multiple: false,
+        }
+
+  - label: "Ajustes del sitio"
+    name: "ajustes"
     files:
-      - label: 'Sitio'
-        name: 'sitio'
-        file: 'content/site/settings.json'
-        format: 'json'
+      - label: "Sitio"
+        name: "sitio"
+        file: "content/site/settings.json"
+        format: "json"
         editor:
           preview: false
         fields:
-          - { label: Título del sitio, name: site_title, widget: string, hint: 'Usado tambien para SEO ON PAGE', required: false }
+          - {
+              label: Título del sitio,
+              name: site_title,
+              widget: string,
+              hint: "Usado tambien para SEO ON PAGE",
+              required: false,
+            }
           - {
               label: Descripción del sitio,
-              name: 'site_desc',
+              name: "site_desc",
               widget: text,
-              hint: 'Usado tambien para SEO ON PAGE',
-              required: false
+              hint: "Usado tambien para SEO ON PAGE",
+              required: false,
             }
-          - { label: Contenido del título principal (H1), name: hero_title, widget: string, required: false }
+          - {
+              label: Contenido del título principal (H1),
+              name: hero_title,
+              widget: string,
+              required: false,
+            }
           - {
               label: Contenido del párrafo principal,
               name: hero_desc,
               widget: text,
-              required: false
+              required: false,
             }
-          - { label: 'Imagen de fondo principal', name: 'hero_image', widget: 'image', allow_multiple: false, required: false }
-          - { label: 'Logo', name: 'logo', widget: 'image', allow_multiple: false, required: false }
-  - label: 'Contenido legal'
-    name: 'legal'
+          - {
+              label: "Imagen de fondo principal",
+              name: "hero_image",
+              widget: "image",
+              allow_multiple: false,
+              required: false,
+            }
+          - {
+              label: "Logo",
+              name: "logo",
+              widget: "image",
+              allow_multiple: false,
+              required: false,
+            }
+  - label: "Contenido legal"
+    name: "legal"
     files:
-      - label: 'Términos y condiciones de privacidad'
-        name: 'terminos'
-        file: 'content/site/terms.json'
-        format: 'json'
+      - label: "Términos y condiciones de privacidad"
+        name: "terminos"
+        file: "content/site/terms.json"
+        format: "json"
         editor:
           preview: true
         fields:
           - { label: Título, name: terms_title, widget: string }
-          - { label: 'Contenido', name: 'terms_content', widget: 'markdown' }
-         
-  - label: 'Productos'
-    name: 'productos'
-    format: 'json'
-    folder: 'content/productos'
-    create: true
-    identifier_field: name
-    slug: '{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: 'Nombre', name: 'name', widget: 'string' }
-      - { label: 'Descripción', name: 'description', widget: 'string' }
-      - { label: 'Precio', name: 'price', widget: 'number', value_type: "float",min: 1, max: 999 }
-      - { label: 'Imagen principal', name: 'image', widget: 'image', required: true, allow_multiple: false }
-     
-      
+          - { label: "Contenido", name: "terms_content", widget: "markdown" }
