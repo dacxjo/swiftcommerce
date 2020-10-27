@@ -5,6 +5,9 @@ media_folder: static/img
 public_folder: /img
 locale: "es"
 site_url: http://localhost:8888
+slug:
+  encoding: "ascii"
+  clean_accents: true
 collections:
   - label: "Productos"
     label_singular: "Producto"
@@ -33,7 +36,8 @@ collections:
           name: "category",
           widget: "relation",
           collection: "categories",
-          value_field: name,
+          value_field: '{{slug}}',
+          display_fields: ["name"],
           search_fields: ["name"],
           default: "categories"
         }
