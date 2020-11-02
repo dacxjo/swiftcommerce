@@ -7,13 +7,21 @@
         {{ productList.length }} productos</span
       >
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+    <transition-group
+      mode="out-in"
+      tag="div"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10"
+      name="list-complete"
+    >
       <product
+      class="list-complete-item"
         v-for="product in sortedProductList"
-        :key="product.id"
+        :key="product.slug"
         :data="product"
       />
-    </div>
+      <product-placeholder v-if="$store.getters['site/adminLoggedIn']" key="placeholder"></product-placeholder>
+    </transition-group>
   </div>
 </template>
 
@@ -84,3 +92,20 @@ export default {
   },
 }
 </script>
+
+<style  scoped>
+.list-complete-item {
+  transition: all 300ms;
+
+  margin-right: 10px;
+}
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-complete-leave-active {
+  position: absolute;
+  opacity: 0;
+}
+</style>

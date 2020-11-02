@@ -20,10 +20,10 @@
         </div>
       </section>
       <section
-        class="container mx-auto my-10 h-auto  p-4 lg:p-0 grid grid-cols-1 sm:grid-cols-4 gap-10"
+        class="container mx-auto my-10 h-auto p-4 lg:p-0 grid grid-cols-1 sm:grid-cols-4 gap-10"
       >
         <!--TODO: Make search and filter a component -->
-        <div class="w-full h-64 col-span-1 hidden lg:block  sticky calc-top">
+        <div class="w-full h-64 col-span-1 hidden lg:block sticky calc-top">
           <div class="flex-col flex">
             <h3 class="text-lg text-gray-800">Buscar</h3>
             <input
@@ -66,12 +66,23 @@
               <button type="submit" class="bg-gray-200">Filtrar</button>
             </form>
           </div>
+          <div class="flex flex-col mt-5">
+            <h3 class="text-lg text-gray-800">Categorías</h3>
+            <n-link class="text-sm mt-2 text-gray-600" to="/">Todos</n-link>
+            <n-link
+              :to="{ path: '/', query: { category: cat.slug } }"
+              v-for="cat in categories"
+              :key="cat.id"
+              class="text-sm mt-2 text-gray-600"
+              >{{ cat.name }}</n-link
+            >
+          </div>
         </div>
         <div class="col-span-3 sm:col-span-4 lg:col-span-3">
           <product-list :productList="filteredProducts"></product-list>
         </div>
       </section>
- 
+
       <section class="w-full bg-gray-200 h-64"></section>
     </template>
     <template v-else>
@@ -92,11 +103,24 @@ export default {
   components: {
     VueSlider,
   },
-  async asyncData({ $content, store }) {
-    const products = await $content('productos').fetch()
+  scrollToTop:false,
+  watchQuery: true,
+  async asyncData({ $content, store, query }) {
+    let products
+
+    if (query.category) {
+      console.log(query.category)
+      products = await $content('productos')
+        .where({ category: query.category })
+        .fetch()
+    } else {
+      products = await $content('productos').fetch()
+    }
+    const categories = await $content('categorias').fetch()
     store.commit('shop/setProducts', products)
     return {
       products,
+      categories,
     }
   },
   data() {
@@ -149,7 +173,9 @@ export default {
   @apply bg-cover;
 }
 
-.calc-top{
+.calc-top {
   top: 6.5rem;
 }
+
+
 </style>
