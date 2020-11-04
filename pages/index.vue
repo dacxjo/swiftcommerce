@@ -1,6 +1,6 @@
 <template>
   <main>
-    <template v-if="productsLength">
+    <template>
       <section
         :style="{ backgroundImage: `url(${heroImage})` }"
         class="index bg-gray-100 flex flex-col justify-center items-center"
@@ -23,9 +23,11 @@
         class="container mx-auto my-10 h-auto p-4 lg:p-0 grid grid-cols-1 sm:grid-cols-4 gap-10"
       >
         <!--TODO: Make search and filter a component -->
-        <div class="w-full h-64 col-span-1 hidden lg:block sticky calc-top">
+        <div class="w-full h-96 col-span-1 hidden lg:block sticky calc-top">
           <div class="flex-col flex">
-            <h3 class="text-lg text-gray-800">Buscar</h3>
+            <h3 class="text-lg text-black font-normal tracking-widest">
+              Buscar
+            </h3>
             <input
               v-model="query"
               class="border-b border-r border-gray-300 focus:outline-none mt-2 text-gray-500"
@@ -33,9 +35,11 @@
               placeholder="Busca un producto"
             />
           </div>
-          <div class="flex flex-col mt-5">
-            <h3 class="text-lg text-gray-800">Filtrar por</h3>
-            <label for="search" class="text-base mt-2 text-gray-600"
+          <div class="flex flex-col mt-5" v-if="false">
+            <h3 class="text-lg text-black font-normal tracking-widest">
+              Filtrar por
+            </h3>
+            <label for="search" class="text-base mt-2 text-gray-600 font-light"
               >Precio</label
             >
             <vue-slider
@@ -66,27 +70,43 @@
               <button type="submit" class="bg-gray-200">Filtrar</button>
             </form>
           </div>
+
           <div class="flex flex-col mt-5">
-            <h3 class="text-lg text-gray-800">Categorías</h3>
-            <n-link class="text-sm mt-2 text-gray-600" to="/">Todos</n-link>
+            <h3 class="text-lg text-black font-normal tracking-widest">
+              Categorías
+            </h3>
             <n-link
+              exact-active-class="active-category"
+              class="text-sm mt-2 text-gray-600 font-light"
+              to="/"
+              >Todos<sup class="text-gray-500">{{
+                allProductsLength
+              }}</sup></n-link
+            >
+            <n-link
+              exact-active-class="active-category"
               :to="{ path: '/', query: { category: cat.slug } }"
               v-for="cat in categories"
               :key="cat.id"
-              class="text-sm mt-2 text-gray-600"
-              >{{ cat.name }}</n-link
+              class="text-sm font-light mt-2 text-gray-600"
+              >{{ cat.name
+              }}<sup class="text-gray-500">{{
+                $store.getters['shop/getNumOfProductsByCat'](cat.slug)
+              }}</sup></n-link
             >
           </div>
         </div>
         <div class="col-span-3 sm:col-span-4 lg:col-span-3">
-          <product-list :productList="filteredProducts"></product-list>
+          <template v-if="filteredProducts.length">
+            <product-list :productList="filteredProducts"></product-list>
+          </template>
+          <template v-else>
+            <p>No se han encontrado resultados</p>
+          </template>
         </div>
       </section>
 
-      <section class="w-full bg-gray-200 h-64"></section>
-    </template>
-    <template v-else>
-      <init-view></init-view>
+      <section class="w-full mt-16 bg-gray-200 h-64"></section>
     </template>
   </main>
 </template>
@@ -103,26 +123,33 @@ export default {
   components: {
     VueSlider,
   },
-  scrollToTop:false,
+  scrollToTop: false,
   watchQuery: true,
   async asyncData({ $content, store, query }) {
-    let products
+    let products, allProducts
+
+    allProducts = await $content('productos').fetch()
 
     if (query.category) {
-      console.log(query.category)
       products = await $content('productos')
         .where({ category: query.category })
         .fetch()
     } else {
       products = await $content('productos').fetch()
     }
+
     const categories = await $content('categorias').fetch()
+
+    store.commit('shop/setAllProducts', allProducts)
     store.commit('shop/setProducts', products)
+    store.commit('shop/setCategories', categories)
+
     return {
       products,
       categories,
     }
   },
+
   data() {
     return {
       query: '',
@@ -138,6 +165,7 @@ export default {
       heroDesc: 'site/getHeroDesc',
       heroImage: 'site/getHeroImg',
       productsLength: 'shop/getProductsLength',
+      allProductsLength: 'shop/getAllProductsLength',
     }),
     filteredProducts() {
       if (this.query) {
@@ -177,5 +205,8 @@ export default {
   top: 6.5rem;
 }
 
-
+.active-category {
+  @apply text-black;
+  @apply font-medium;
+}
 </style>

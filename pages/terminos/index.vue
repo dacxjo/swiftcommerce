@@ -4,7 +4,7 @@
     <section
       class="container mx-auto px-5 lg:px-0 pt-24"
     >
-    <h1 class="text-left text-5xl">{{terms.terms_title || 'Default Title'}}</h1>
+    <h1 class="text-left text-5xl my-10">{{terms.terms_title || 'Default Title'}}</h1>
     <hr>
     <div class="py-10" v-html="$md.render(terms.terms_content)"></div>
     </section>
