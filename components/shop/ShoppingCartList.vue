@@ -4,14 +4,14 @@
       role="button"
       @click="toggleCartList"
       style="background: rgba(0, 0, 0, 0.3)"
-      class="absolute top-0 right-0 w-full h-screen shadow-xs z-50"
+      class="fixed top-0 right-0 w-full h-screen shadow-xs z-50"
     ></div>
     <div
       :class="{
         '-translate-x-0': showSidebar,
         'translate-x-full': !showSidebar,
       }"
-      class="absolute top-0 right-0 w-1/3 h-screen bg-white shadow-xs z-50 duration-300 transform transition-transform"
+      class="fixed top-0 bottom-0 right-0 w-3/4 sm:w-1/3 h-full bg-white shadow-xs z-50 duration-300 transform transition-transform"
     ></div>
   </div>
 </template>

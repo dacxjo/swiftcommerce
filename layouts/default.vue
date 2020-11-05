@@ -2,8 +2,8 @@
   <div>
     <netlify-admin-bar v-if="$store.getters['site/adminLoggedIn']" /> 
     <navbar ref="navbar" />
-    <shopping-cart-list v-if="$store.getters['shop/getToggleCartList']" />
     <Nuxt />
+     <shopping-cart-list v-if="$store.getters['shop/getToggleCartList']" />
     <page-footer />
   </div>
 </template>
