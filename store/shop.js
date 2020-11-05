@@ -1,7 +1,9 @@
 export const state = () => ({
     allProducts:[],
     products: [],
-    categories:[]
+    categories:[],
+    cart:[],
+    toggleCartList: false
 })
 
 export const mutations = {
@@ -14,6 +16,15 @@ export const mutations = {
     setCategories(state, categories) {
         state.categories = categories
     },
+    addToCart(state,item){
+        state.cart.push(item)
+    },
+    removeFromCart(state,item){
+        state.cart = state.cart.filter( i => i.name !== item.name);
+    },
+    toggleCartList(state){
+        state.toggleCartList = !state.toggleCartList
+    }
 }
 
 export const getters = {
@@ -40,5 +51,11 @@ export const getters = {
             }
          });
          return count;
-     }
+     },
+     getNumOfItemsInCart(state){
+        return state.cart.length
+     },
+     getToggleCartList(state){
+        return state.toggleCartList
+    },
 }

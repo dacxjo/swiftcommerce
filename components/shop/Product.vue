@@ -20,6 +20,15 @@
         <span class="text-base font-bold text-yellow-500"
           >{{ data.price }}€</span
         >
+        <button @click="addToCart" class="flex text-xs font-light">
+          <img
+            class="w-4 mr-2"
+            loading="lazy"
+            src="~/assets/images/shopping-cart.svg"
+            alt="cart"
+          />
+          Añadir al carrito
+        </button>
       </div>
     </div>
   </div>
@@ -32,6 +41,12 @@ export default {
     data: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    addToCart() {
+      this.$nuxt.$emit('adding-to-cart')
+      this.$store.commit('shop/addToCart',this.data)
     },
   },
   computed: {

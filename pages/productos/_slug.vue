@@ -28,7 +28,7 @@
               type="number"
               class="w-1/6 mr-10 border border-black focus:outline-none px-4"
             />
-            <button class="bg-black text-white py-4 px-12">
+            <button @click="addToCart"  class="bg-black text-white py-4 px-12">
               Añadir al carrito
             </button>
           </div>
@@ -63,11 +63,19 @@ export default {
     const product = await $content('productos')
       .where({ slug: params.slug })
       .fetch()
-    const category = await $content('categorias').where({slug:product.category}).fetch()
+    const category = await $content('categorias')
+      .where({ slug: product.category })
+      .fetch()
     return {
       product: product[0],
       category: category[0],
     }
+  },
+  methods: {
+    addToCart() {
+      this.$nuxt.$emit('adding-to-cart')
+      this.$store.commit('shop/addToCart', this.product)
+    },
   },
 }
 </script>

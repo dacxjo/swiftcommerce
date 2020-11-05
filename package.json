@@ -13,6 +13,7 @@
     "@nuxt/content": "^1.5.0",
     "@nuxtjs/markdownit": "^1.2.10",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "lottie-web": "^5.7.4",
     "nuxt": "^2.14.0",
     "vue-slider-component": "^3.2.9"
   },
