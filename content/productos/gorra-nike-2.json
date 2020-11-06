@@ -1,7 +1,7 @@
 {
-  "name": "Example product 2",
+  "name": "Coco Oil",
   "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nihil, provident dignissimos officia rem unde odit eveniet optio totam iusto et amet, adipisci itaque enim illum similique quis, tenetur quibusdam.",
-  "price": 55,
+  "price": 30,
   "image": "/img/plant.jpg",
   "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nihil, provident dignissimos officia rem unde odit eveniet optio totam iusto et amet, adipisci itaque enim illum similique quis, tenetur quibusdam.",
   "category": "categoria-a"
