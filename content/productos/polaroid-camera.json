@@ -1,0 +1,9 @@
+{
+  "category": "categoria-b",
+  "id": "POL-97qca022j",
+  "name": "Polaroid Camera",
+  "slug": "polaroid-camera",
+  "description": "Cámara polaroid de última generación",
+  "price": 320,
+  "image": "/img/camera.jpg"
+}
