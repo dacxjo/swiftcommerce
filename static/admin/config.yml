@@ -17,10 +17,14 @@ collections:
     folder: "content/productos"
     create: true
     identifier_field: name
-    slug: "{{name}}"
+    slug: "{{fields.slug}}"
     editor:
       preview: false
     fields:
+      - name: "id"
+        label: "ID"
+        widget: "id"
+      - {name: slug, label: Slug}
       - { label: "Nombre", name: "name", widget: "string" }
       - { label: "Descripción", name: "description", widget: "string" }
       - {
@@ -48,10 +52,6 @@ collections:
           required: true,
           allow_multiple: false,
         }
-      - name: "id"
-        label: "ID"
-        widget: "id"
-        required: false
      
 
   - label: "Categorías"
