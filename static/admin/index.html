@@ -35,13 +35,24 @@
 
                 const nameInput = document.getElementById('name-field-1');
 
-                nameInput.addEventListener('keydown', (event) => {
-                    this.setState((state) => {
-                        return {
-                            value: event.target.value.substring(0, 3).toUpperCase()
-                        }
-                    })
-                });
+                if (nameInput) {
+                    if (nameInput.value.length) {
+                        this.setState((state) => {
+                            return {
+                                value: nameInput.value.substring(0, 3).toUpperCase()
+                            }
+                        })
+                    }
+
+                    nameInput.addEventListener('keydown', (event) => {
+                        this.setState((state) => {
+                            return {
+                                value: event.target.value.substring(0, 3).toUpperCase()
+                            }
+                        })
+                    });
+                }
+
 
             },
 
