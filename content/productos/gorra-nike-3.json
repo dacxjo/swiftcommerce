@@ -1,8 +1,10 @@
 {
-  "name": "Example product 3",
+  "name": "Earphones",
   "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nihil, provident dignissimos officia rem unde odit eveniet optio totam iusto et amet, adipisci itaque enim illum similique quis, tenetur quibusdam.",
   "price": 35.99,
   "image": "/img/ear.jpg",
   "description": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus nihil, provident dignissimos officia rem unde odit eveniet optio totam iusto et amet, adipisci itaque enim illum similique quis, tenetur quibusdam.",
-  "category": "categoria-b"
+  "category": "categoria-b",
+  "id": "EAR-hy954ug7u",
+  "slug": "earphones"
 }
