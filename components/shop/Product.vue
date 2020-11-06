@@ -17,7 +17,7 @@
         {{ data.name }}</span>
       <div class="flex justify-between w-full items-center">
         <span
-          class="text-base font-bold text-yellow-500"
+          class="text-base text-gray-900 tracking-widest font-semibold"
         >{{ data.price }}€</span>
         <button class="flex text-xs font-light" @click="addToCart">
           <img

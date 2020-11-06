@@ -3,7 +3,7 @@
     <div class="flex justify-between mb-5">
       <sort-by @sortBy="setSortMethod" />
       <span
-        class="text-xs font-light text-gray-600"
+        class="text-xs font-light text-gray-700"
       >Mostrando {{ productList.length }} de
         {{ productList.length }} productos</span>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="relative">
-      <button ref="cart" class="w-12 h-12" @click="toggleCartList" />
+      <button ref="cart" title="Mostrar carrito" class="w-12 h-12" @click="toggleCartList" />
       <span
         class="absolute top-0 right-0 w-4 h-4 rounded-full bg-black text-xs text-white cart-badge text-center"
       >{{ itemsInCart }}</span>

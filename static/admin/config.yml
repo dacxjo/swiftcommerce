@@ -48,6 +48,11 @@ collections:
           required: true,
           allow_multiple: false,
         }
+      - name: "id"
+        label: "ID"
+        widget: "id"
+        required: false
+     
 
   - label: "Categorías"
     label_singular: "Categoría"

@@ -7,15 +7,15 @@
         >
           <li>
             <span
-              class="text-xs text-gray-500"
+              class="text-xs text-gray-700"
             >© {{ new Date().getFullYear() }}
               {{ $store.getters['site/getSiteTitle'] }}</span>
           </li>
           <li>
-            <span class="text-sm text-gray-600"> Arpen Technologies </span>
+            <span class="text-sm text-gray-700"> Arpen Technologies </span>
           </li>
           <li>
-            <n-link to="/terminos">
+            <n-link class="text-sm text-gray-700" to="/terminos">
               Términos legales
             </n-link>
           </li>

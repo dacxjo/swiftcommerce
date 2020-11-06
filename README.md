@@ -1,5 +1,7 @@
 # arpen-swiftcommerce
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/eff65571-a12e-4d8f-88cb-d87408e2261e/deploy-status)](https://app.netlify.com/sites/arpen-swiftcommerce/deploys)
+
 ## Build Setup
 
 ```bash
