@@ -1,0 +1,9 @@
+{
+  "category": "categoria-b",
+  "id": "AUD-cg3dm6ma1",
+  "name": "Audífonos JAMstack",
+  "slug": "audifonos-jamstack",
+  "description": "Audífonos especiales para la programación orientada a objetos.",
+  "price": 120,
+  "image": "/img/ear.jpg"
+}
