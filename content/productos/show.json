@@ -1,0 +1,7 @@
+{
+  "category": "categoria-a",
+  "name": "Show",
+  "description": "This is a shoe",
+  "price": 250,
+  "image": "/img/shoe.png"
+}
