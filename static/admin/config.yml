@@ -24,8 +24,10 @@ collections:
       - name: "id"
         label: "ID"
         widget: "id"
-      - {name: slug, label: Slug}
       - { label: "Nombre", name: "name", widget: "string" }
+      - name: "slug"
+        label: "Slug (url del producto)"
+        widget: "slug"   
       - { label: "Descripción", name: "description", widget: "string" }
       - {
           label: "Precio",

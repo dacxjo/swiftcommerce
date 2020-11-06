@@ -6,7 +6,7 @@
           class="w-full object-cover h-full border border-gray-300"
           loading="lazy"
           :src="product.image"
-          :alt="product.desc"
+          :alt="product.description"
         >
         <div class="px-5 sm:px-0 flex flex-col justify-center">
           <h1 class="text-4xl font-bold text-center lg:text-left">
@@ -17,7 +17,7 @@
           >{{ product.price }} €</span>
           <hr class="my-10">
           <p class="text-gray-800 text-lg leading-7 text-center lg:text-left">
-            {{ product.desc }}
+            {{ product.description }}
           </p>
           <hr class="my-10">
           <div class="flex text-center justify-center lg:justify-start">
