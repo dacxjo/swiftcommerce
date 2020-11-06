@@ -11,16 +11,15 @@
           src="~/assets/images/add.png"
           loading="lazy"
           alt="Add product"
-        />
+        >
       </div>
     </a>
     <div class="p-2">
       <span
         class="py-2 text-sm font-normal whitespace-no-wrap t-overflow text-gray-900"
-      >
-      </span>
+      />
       <div class="flex justify-between w-full items-center">
-        <span class="text-base font-bold text-yellow-500"></span>
+        <span class="text-base font-bold text-yellow-500" />
       </div>
     </div>
   </div>

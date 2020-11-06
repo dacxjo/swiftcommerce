@@ -7,26 +7,25 @@
           :src="data.image"
           :alt="data.desc"
           loading="lazy"
-        />
+        >
       </div>
     </n-link>
     <div class="p-2">
       <span
         class="py-2 text-sm font-normal whitespace-no-wrap t-overflow text-gray-900"
       >
-        {{ data.name }}</span
-      >
+        {{ data.name }}</span>
       <div class="flex justify-between w-full items-center">
-        <span class="text-base font-bold text-yellow-500"
-          >{{ data.price }}€</span
-        >
-        <button @click="addToCart" class="flex text-xs font-light">
+        <span
+          class="text-base font-bold text-yellow-500"
+        >{{ data.price }}€</span>
+        <button class="flex text-xs font-light" @click="addToCart">
           <img
             class="w-4 mr-2"
             loading="lazy"
             src="~/assets/images/shopping-cart.svg"
             alt="cart"
-          />
+          >
           Añadir al carrito
         </button>
       </div>
@@ -40,20 +39,20 @@ export default {
   props: {
     data: {
       type: Object,
-      required: true,
-    },
-  },
-  methods: {
-    addToCart() {
-      this.$nuxt.$emit('adding-to-cart')
-      this.$store.commit('shop/addToCart',this.data)
-    },
+      required: true
+    }
   },
   computed: {
-    productURL() {
+    productURL () {
       return `/productos/${this.data.slug}`
-    },
+    }
   },
+  methods: {
+    addToCart () {
+      this.$nuxt.$emit('adding-to-cart')
+      this.$store.commit('shop/addToCart', this.data)
+    }
+  }
 }
 </script>
 

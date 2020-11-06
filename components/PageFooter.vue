@@ -6,16 +6,18 @@
           class="flex flex-col items-center py-5 sm:py-0 sm:flex-row justify-between h-full w-full"
         >
           <li>
-            <span class="text-xs text-gray-500"
-              >© {{ new Date().getFullYear() }}
-              {{ $store.getters['site/getSiteTitle'] }}</span
-            >
+            <span
+              class="text-xs text-gray-500"
+            >© {{ new Date().getFullYear() }}
+              {{ $store.getters['site/getSiteTitle'] }}</span>
           </li>
           <li>
             <span class="text-sm text-gray-600"> Arpen Technologies </span>
           </li>
           <li>
-            <n-link to="/terminos"> Términos legales </n-link>
+            <n-link to="/terminos">
+              Términos legales
+            </n-link>
           </li>
         </ul>
       </div>

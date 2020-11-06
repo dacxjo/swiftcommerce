@@ -11,7 +11,7 @@
       </n-link>
       <ul class="flex items-center">
         <li>
-          <shopping-cart></shopping-cart>
+          <shopping-cart />
         </li>
       </ul>
     </div>
@@ -21,8 +21,7 @@
 <script>
 
 export default {
-  name: 'Navbar',
-  
+  name: 'Navbar'
 }
 </script>
 
@@ -30,5 +29,4 @@ export default {
 .admin-fixed {
   top: 2.5rem;
 }
-
 </style>

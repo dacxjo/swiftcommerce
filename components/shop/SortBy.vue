@@ -1,11 +1,19 @@
 <template>
   <div>
     <label for="sortby" class="text-gray-800">Ordenar por: </label>
-    <select @change="emitSort" class="sortby" name="" id="sortby">
-      <option value="A-Z" selected>A-Z</option>
-      <option value="p-asc">Precio menor</option>
-      <option value="p-desc">Precio mayor</option>
-      <option value="latest">Más nuevo</option>
+    <select id="sortby" class="sortby" name="" @change="emitSort">
+      <option value="A-Z" selected>
+        A-Z
+      </option>
+      <option value="p-asc">
+        Precio menor
+      </option>
+      <option value="p-desc">
+        Precio mayor
+      </option>
+      <option value="latest">
+        Más nuevo
+      </option>
     </select>
   </div>
 </template>
@@ -14,10 +22,10 @@
 export default {
   name: 'Sortby',
   methods: {
-    emitSort($event, value) {
+    emitSort ($event, value) {
       this.$emit('sortBy', $event.target.value)
-    },
-  },
+    }
+  }
 }
 </script>
 

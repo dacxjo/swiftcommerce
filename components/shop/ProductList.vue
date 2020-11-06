@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="flex justify-between mb-5">
-      <sort-by @sortBy="setSortMethod"></sort-by>
-      <span class="text-xs font-light text-gray-600"
-        >Mostrando {{ productList.length }} de
-        {{ productList.length }} productos</span
-      >
+      <sort-by @sortBy="setSortMethod" />
+      <span
+        class="text-xs font-light text-gray-600"
+      >Mostrando {{ productList.length }} de
+        {{ productList.length }} productos</span>
     </div>
 
     <transition-group
@@ -15,36 +15,53 @@
       name="list-complete"
     >
       <product
-      class="list-complete-item"
         v-for="product in sortedProductList"
         :key="product.slug"
+        class="list-complete-item"
         :data="product"
       />
-      <product-placeholder v-if="$store.getters['site/adminLoggedIn']" key="placeholder"></product-placeholder>
+      <product-placeholder v-if="$store.getters['site/adminLoggedIn']" key="placeholder" />
     </transition-group>
   </div>
 </template>
 
 <script>
-//TODO: Centralize sort logic in sortBy component
+// TODO: Centralize sort logic in sortBy component
 export default {
   name: 'ProductList',
   props: {
     productList: {
       type: Array,
-      required: true,
-    },
+      required: true
+    }
   },
-  data() {
+  data () {
     return {
-      sortMethod: 'A-Z',
+      sortMethod: 'A-Z'
+    }
+  },
+  computed: {
+    sortedProductList () {
+      const currentProductList = this.productList.slice()
+      switch (this.sortMethod) {
+        case 'A-Z':
+          return currentProductList.sort(this.sortAlpha)
+        case 'p-asc':
+          return currentProductList.sort(this.sortByPriceASC)
+        case 'p-desc':
+          return currentProductList.sort(this.sortByPriceDESC)
+        case 'latest':
+          return currentProductList.sort(this.sortByDate)
+        default:
+          return currentProductList.sort(this.sortAlpha)
+      }
     }
   },
   methods: {
-    setSortMethod($event) {
+    setSortMethod ($event) {
       this.sortMethod = $event
     },
-    sortAlpha(a, b) {
+    sortAlpha (a, b) {
       a = a.name.toLowerCase()
       b = b.name.toLowerCase()
       if (a < b) {
@@ -56,40 +73,18 @@ export default {
 
       return 0
     },
-    sortByPriceASC(a, b) {
+    sortByPriceASC (a, b) {
       return a.price - b.price
     },
-    sortByPriceDESC(a, b) {
+    sortByPriceDESC (a, b) {
       return b.price - a.price
     },
-    sortByDate(a, b) {
-      let da = new Date(a.createdAt),
-        db = new Date(b.createdAt)
+    sortByDate (a, b) {
+      const da = new Date(a.createdAt)
+      const db = new Date(b.createdAt)
       return da - db
-    },
-  },
-  computed: {
-    sortedProductList() {
-      const currentProductList = this.productList.slice()
-      switch (this.sortMethod) {
-        case 'A-Z':
-          return currentProductList.sort(this.sortAlpha)
-          break
-        case 'p-asc':
-          return currentProductList.sort(this.sortByPriceASC)
-          break
-        case 'p-desc':
-          return currentProductList.sort(this.sortByPriceDESC)
-          break
-        case 'latest':
-          return currentProductList.sort(this.sortByDate)
-          break
-        default:
-          return currentProductList.sort(this.sortAlpha)
-          break
-      }
-    },
-  },
+    }
+  }
 }
 </script>
 

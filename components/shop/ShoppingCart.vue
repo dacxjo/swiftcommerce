@@ -1,34 +1,38 @@
 <template>
   <div>
     <div class="relative">
-      <button @click="toggleCartList" class="w-12 h-12" ref="cart"></button>
+      <button ref="cart" class="w-12 h-12" @click="toggleCartList" />
       <span
         class="absolute top-0 right-0 w-4 h-4 rounded-full bg-black text-xs text-white cart-badge text-center"
-        >{{ itemsInCart }}</span
-      >
+      >{{ itemsInCart }}</span>
     </div>
   </div>
 </template>
 
 <script>
 import lottie from 'lottie-web'
-import * as animation from '~/static/lottie/cart.json'
 import { mapGetters } from 'vuex'
+import * as animation from '~/static/lottie/cart.json'
 
 export default {
   name: 'ShoppingCart',
-  data() {
+  data () {
     return {
-      cartAnim: null,
+      cartAnim: null
     }
   },
-  mounted() {
+  computed: {
+    ...mapGetters({
+      itemsInCart: 'shop/getNumOfItemsInCart'
+    })
+  },
+  mounted () {
     const anim = lottie.loadAnimation({
       container: this.$refs.cart, // the dom element that will contain the animation
       renderer: 'svg',
       loop: false,
       autoplay: false,
-      animationData: JSON.parse(JSON.stringify(animation.default)),
+      animationData: JSON.parse(JSON.stringify(animation.default))
     })
     anim.goToAndStop(20, true)
     this.cartAnim = anim
@@ -36,19 +40,14 @@ export default {
     this.$nuxt.$on('adding-to-cart', this.animateCart)
   },
   methods: {
-    animateCart() {
+    animateCart () {
       this.cartAnim.goToAndPlay(0, true)
     },
-    toggleCartList() {
+    toggleCartList () {
       this.$store.commit('shop/toggleCartList')
-      document.body.style.overflow = "hidden";
-    },
-  },
-  computed: {
-    ...mapGetters({
-      itemsInCart: 'shop/getNumOfItemsInCart',
-    }),
-  },
+      document.body.style.overflow = 'hidden'
+    }
+  }
 }
 </script>
 
