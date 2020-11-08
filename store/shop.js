@@ -17,7 +17,12 @@ export const mutations = {
     state.categories = categories
   },
   addToCart (state, item) {
-    state.cart.push(item)
+    if (state.cart.some(it => it.id === item.id)) {
+      const it = state.cart.find(x => x.id === item.id)
+      it.quantity++
+    } else {
+      state.cart.push(item)
+    }
   },
   removeFromCart (state, item) {
     state.cart = state.cart.filter(i => i.name !== item.name)
@@ -53,7 +58,15 @@ export const getters = {
     return count
   },
   getNumOfItemsInCart (state) {
-    return state.cart.length
+    let quantity = 0
+    state.cart.forEach((item) => {
+      quantity += item.quantity
+    })
+
+    return quantity
+  },
+  getCartItems (state) {
+    return state.cart
   },
   getToggleCartList (state) {
     return state.toggleCartList

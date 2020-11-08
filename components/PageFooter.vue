@@ -12,7 +12,7 @@
               {{ $store.getters['site/getSiteTitle'] }}</span>
           </li>
           <li>
-            <span class="text-sm text-gray-700"> Arpen Technologies </span>
+            <span class="text-sm text-gray-700"> Swiftcommerce </span>
           </li>
           <li>
             <n-link class="text-sm text-gray-700" to="/terminos">
