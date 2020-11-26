@@ -27,7 +27,7 @@ export default {
       { rel: 'author', href: '/humans.txt' }
     ],
     script: [
-      { hid: 'identity-netlify', src: "https://identity.netlify.com/v1/netlify-identity-widget.js", defer: true }
+      { hid: 'identity-netlify', src: 'https://identity.netlify.com/v1/netlify-identity-widget.js', defer: true }
     ]
   },
   /*
@@ -51,7 +51,7 @@ export default {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss'
   ],
   /*
   ** Nuxt.js modules

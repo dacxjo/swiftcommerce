@@ -13,11 +13,33 @@
       }"
       class="fixed top-0 bottom-0 right-0 w-3/4 sm:w-1/3 h-full bg-white shadow-xs z-50 duration-300 transform transition-transform"
     >
-      <ul>
-        <li v-for="item in items" :key="item.data[0].id">
-          <img loading="lazy" :src="item.data[0].image" alt="">
-        </li>
-      </ul>
+      <template v-if="cartItems.length">
+        <ul>
+          <shopping-cart-item
+            v-for="item in cartItems"
+            :key="item.data.id"
+            :item="item"
+          />
+        </ul>
+      </template>
+      <template v-else>
+        <div class="flex flex-col justify-center h-full w-full items-center">
+          <div class="flex flex-col items-center">
+            <img
+              class="w-16 mr-2"
+              loading="lazy"
+              src="~/assets/images/conjunto-vacio.svg"
+              alt="Vacio"
+            >
+            <h4 class="font-semibold mt-4">
+              Tu carrito está vacio
+            </h4>
+            <p class="text-xs text-gray-500">
+              ¿Que te apetece comprar hoy?
+            </p>
+          </div>
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -27,8 +49,7 @@ import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      showSidebar: false,
-      items: []
+      showSidebar: false
     }
   },
   computed: {
@@ -40,19 +61,8 @@ export default {
     setTimeout(() => {
       this.showSidebar = true
     }, 300)
-
-    this.getFullDataItems()
   },
   methods: {
-    async getFullDataItems () {
-      await this.cartItems.forEach(async (item) => {
-        const data = await this.$content('productos').where({ id: item.id }).fetch()
-        this.items.push({
-          data,
-          quantity: item.quantity
-        })
-      })
-    },
     toggleCartList () {
       this.showSidebar = false
       setTimeout(() => {

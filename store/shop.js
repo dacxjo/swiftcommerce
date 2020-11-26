@@ -17,15 +17,24 @@ export const mutations = {
     state.categories = categories
   },
   addToCart (state, item) {
-    if (state.cart.some(it => it.id === item.id)) {
-      const it = state.cart.find(x => x.id === item.id)
+    if (state.cart.some(it => it.data.id === item.data.id)) {
+      const it = state.cart.find(x => x.data.id === item.data.id)
       it.quantity++
     } else {
       state.cart.push(item)
     }
   },
+  removeOneUnit (state, item) {
+    if (state.cart.some(it => it.data.id === item.data.id)) {
+      const it = state.cart.find(x => x.data.id === item.data.id)
+      it.quantity--
+      if (it.quantity < 1) {
+        mutations.removeFromCart(state, item)
+      }
+    }
+  },
   removeFromCart (state, item) {
-    state.cart = state.cart.filter(i => i.name !== item.name)
+    state.cart = state.cart.filter(i => i.data.id !== item.data.id)
   },
   toggleCartList (state) {
     state.toggleCartList = !state.toggleCartList
@@ -70,5 +79,11 @@ export const getters = {
   },
   getToggleCartList (state) {
     return state.toggleCartList
+  },
+  getCartItemQuantity: state => (item) => {
+    if (state.cart.some(it => it.data.id === item.data.id)) {
+      const it = state.cart.find(x => x.data.id === item.data.id)
+      return it.quantity
+    }
   }
 }
