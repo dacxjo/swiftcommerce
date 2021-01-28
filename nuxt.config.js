@@ -75,5 +75,8 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+  },
+  env: {
+    CATALOG_MODE: process.env.CATALOG_MODE || false
   }
 }

@@ -83,9 +83,7 @@
               class="text-sm mt-2 text-gray-600 font-light"
               to="/"
             >
-              Todos<sup class="text-gray-500">{{
-                allProductsLength
-              }}</sup>
+              Todos<sup class="text-gray-500">{{ allProductsLength }}</sup>
             </n-link>
             <n-link
               v-for="cat in categories"
@@ -195,6 +193,7 @@ export default {
   },
   mounted () {
     this.selectedRange = [this.pricesRange[0], this.pricesRange[1]]
+    console.log(process.env.CATALOG_MODE)
   }
 }
 </script>

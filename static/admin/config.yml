@@ -1,10 +1,11 @@
 backend:
   name: git-gateway
+  repo: dacxjo/swiftcommerce
   branch: feature/shoppingCart
 media_folder: static/img
 public_folder: /img
 locale: "es"
-site_url: http://localhost:8888
+site_url: http://localhost:3000
 slug:
   encoding: "ascii"
   clean_accents: true
