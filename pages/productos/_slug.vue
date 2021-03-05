@@ -77,7 +77,10 @@ export default {
   methods: {
     addToCart () {
       this.$nuxt.$emit('adding-to-cart')
-      this.$store.commit('shop/addToCart', this.product)
+      this.$store.commit('shop/addToCart', {
+        quantity: 1,
+        data: this.product
+      })
     }
   }
 }

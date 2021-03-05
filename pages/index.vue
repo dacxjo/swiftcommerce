@@ -193,7 +193,6 @@ export default {
   },
   mounted () {
     this.selectedRange = [this.pricesRange[0], this.pricesRange[1]]
-    console.log(process.env.CATALOG_MODE)
   }
 }
 </script>
