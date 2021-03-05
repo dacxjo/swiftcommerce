@@ -1,0 +1,9 @@
+{
+  "category": "categoria-a",
+  "id": "CON-nr2y1ghzd",
+  "name": "Control switch",
+  "slug": "control-switch",
+  "description": "Control de nintendo switch, modelo rojo y azul",
+  "price": 300,
+  "image": "/img/swtich.jpg"
+}
