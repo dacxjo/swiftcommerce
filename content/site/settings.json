@@ -1,8 +1,8 @@
 {
-  "site_title": "Hook Demo site",
-  "site_desc": "Demo site is a demo for project swiftcommerce. It's a ease to use and deploy ecommerce based on Jamstack.",
-  "hero_title": "Hello World to Swiftcommerce!!",
-  "hero_desc": "Demo site is a demo for project swiftcommerce. It's a ease to use and deploy ecommerce based on Jamstack.\nYou can have an ecommerce in 1 or 2 days!",
+  "site_title": "Accesorios Margot",
+  "site_desc": "Tienda de variedades y accesorios al servicio de todos.",
+  "hero_title": "Accesorios, joyeria y variedades a tu alcance",
+  "hero_desc": "Accesorios Margot",
   "hero_image": "/img/margo.jpg",
   "logo": ""
 }
