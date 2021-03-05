@@ -19,10 +19,12 @@ export default {
     name: 'home',
     mode: 'out-in'
   },
-  async asyncData ({ $content, store, query }) {
+  async asyncData ({ $content, store, params }) {
     const allProducts = await $content('productos').fetch()
 
-    const products = await $content('productos').fetch()
+    const products = await $content('productos')
+      .where({ category: params.slug })
+      .fetch()
 
     store.commit('shop/setAllProducts', allProducts)
     store.commit('shop/setProducts', products)
@@ -63,14 +65,15 @@ export default {
       return [minPrice, maxPrice]
     }
   },
-
   mounted () {
     this.selectedRange = [this.pricesRange[0], this.pricesRange[1]]
-    this.$nuxt.$on('searching-product', (params) => {
-      this.query = params.query
-    })
-    // eslint-disable-next-line no-console
-    console.log(process.env.CATALOG_MODE)
   }
 }
 </script>
+
+<style scoped>
+.active-category {
+  @apply text-black;
+  @apply font-medium;
+}
+</style>

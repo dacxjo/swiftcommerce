@@ -1,6 +1,12 @@
 [[redirects]]
-  from = "/productos"
+  from = "/categoria"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/producto"
   to = "/"
   status = 301
 [build]
   functions = "functions"
+
+

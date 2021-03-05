@@ -1,10 +1,8 @@
 <!-- eslint-disable vue/no-v-html */ -->
 <template>
   <!--TODO: Validate empty settings -->
-  <main class="bg-gray-100 ">
-    <section
-      class="container mx-auto px-5 lg:px-0 pt-24"
-    >
+  <main class="bg-gray-100">
+    <section class="container mx-auto px-5 lg:px-0 pt-24">
       <h1 class="text-left text-5xl my-10">
         {{ terms.terms_title || 'Default Title' }}
       </h1>
@@ -17,6 +15,7 @@
 <script>
 export default {
   name: 'Terms',
+  layout: 'single',
   async asyncData ({ $content, store }) {
     const terms = await $content('site/terms').fetch()
     return {

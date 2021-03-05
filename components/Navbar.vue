@@ -1,7 +1,7 @@
 <template>
   <nav
     :class="{ 'admin-fixed': $store.getters['site/adminLoggedIn'] }"
-    class="w-full h-16 flex justify-between items-center fixed bg-white z-50"
+    class="w-full h-16 flex justify-between items-center fixed bg-white z-50 border-b border-gray-200"
   >
     <div
       class="container mx-auto flex justify-between items-center px-4 lg:px-0"
@@ -19,7 +19,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'Navbar'
 }

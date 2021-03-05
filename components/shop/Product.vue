@@ -44,7 +44,7 @@ export default {
   },
   computed: {
     productURL () {
-      return `/productos/${this.data.slug}`
+      return `/producto/${this.data.slug}`
     }
   },
   methods: {
