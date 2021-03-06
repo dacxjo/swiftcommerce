@@ -1,11 +1,11 @@
 backend:
   name: git-gateway
   repo: dacxjo/swiftcommerce
-  branch: feature/layout
+  branch: master
 media_folder: static/img
 public_folder: /img
 locale: 'es'
-site_url: http://localhost:3000
+site_url: https://accesoriosmargot.com/
 slug:
   encoding: 'ascii'
   clean_accents: true
@@ -36,7 +36,7 @@ collections:
           widget: 'number',
           value_type: 'float',
           min: 1,
-          max: 999,
+          max: 999
         }
       - {
           label: 'Stock',
@@ -45,7 +45,7 @@ collections:
           value_type: 'int',
           min: 1,
           max: 999,
-          required: false,
+          required: false
         }
       - {
           label: 'Categoría',
@@ -55,14 +55,14 @@ collections:
           value_field: '{{slug}}',
           display_fields: ['name'],
           search_fields: ['name'],
-          default: 'categories',
+          default: 'categories'
         }
       - {
           label: 'Imagen principal',
           name: 'image',
           widget: 'image',
           required: true,
-          allow_multiple: false,
+          allow_multiple: false
         }
 
   - label: 'Categorías'
@@ -83,7 +83,7 @@ collections:
           name: 'image',
           widget: 'image',
           required: false,
-          allow_multiple: false,
+          allow_multiple: false
         }
 
   - label: 'Ajustes del sitio'
@@ -101,40 +101,40 @@ collections:
               name: site_title,
               widget: string,
               hint: 'Usado tambien para SEO ON PAGE',
-              required: false,
+              required: false
             }
           - {
               label: Descripción del sitio,
               name: 'site_desc',
               widget: text,
               hint: 'Usado tambien para SEO ON PAGE',
-              required: false,
+              required: false
             }
           - {
               label: Contenido del título principal (H1),
               name: hero_title,
               widget: string,
-              required: false,
+              required: false
             }
           - {
               label: Contenido del párrafo principal,
               name: hero_desc,
               widget: text,
-              required: false,
+              required: false
             }
           - {
               label: 'Imagen de fondo principal',
               name: 'hero_image',
               widget: 'image',
               allow_multiple: false,
-              required: false,
+              required: false
             }
           - {
               label: 'Logo',
               name: 'logo',
               widget: 'image',
               allow_multiple: false,
-              required: false,
+              required: false
             }
   - label: 'Contenido legal'
     name: 'legal'
