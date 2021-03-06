@@ -20,7 +20,7 @@
             >{{ category.name }}</n-link></span>
           <span
             class="text-3xl font-bold text-yellow-600 text-center lg:text-left"
-          >{{ product.price }} {{ data.currency || 'C$' }}</span>
+          >{{ product.price }} {{ product.currency || 'C$' }}</span>
           <hr class="my-4 sm:my-10">
           <p class="text-gray-800 text-lg leading-7 text-center lg:text-left">
             {{ product.description }}
