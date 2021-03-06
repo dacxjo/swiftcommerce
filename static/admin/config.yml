@@ -48,6 +48,15 @@ collections:
           required: false
         }
       - {
+          label: "Moneda",
+          name: "currency",
+          widget: "select",
+          options:
+            - { label: "Códoba Nicaragüense", value: "NIO" }
+            - { label: "Dolar", value: "USD" }
+            - { label: "Euro", value: "EUR" }
+        }
+      - {
           label: 'Categoría',
           name: 'category',
           widget: 'relation',

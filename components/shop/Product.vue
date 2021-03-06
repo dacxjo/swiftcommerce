@@ -25,7 +25,7 @@
       <div class="flex justify-between w-full items-center">
         <span
           class="text-base text-gray-900 tracking-widest font-semibold"
-        >{{ data.price }}€</span>
+        >{{ data.price }}{{ data.currency || 'C$' }}</span>
         <button
           v-if="!isCatalog"
           class="flex text-xs font-light"
