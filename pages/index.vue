@@ -21,9 +21,7 @@ export default {
   },
   async asyncData ({ $content, store, query }) {
     const allProducts = await $content('productos').fetch()
-
     const products = await $content('productos').fetch()
-
     store.commit('shop/setAllProducts', allProducts)
     store.commit('shop/setProducts', products)
 
@@ -71,6 +69,18 @@ export default {
     })
     // eslint-disable-next-line no-console
     console.log(process.env.CATALOG_MODE)
+  },
+  head () {
+    return {
+      title: 'Home',
+      meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: 'Home'
+        }
+      ]
+    }
   }
 }
 </script>

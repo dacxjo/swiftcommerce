@@ -27,7 +27,7 @@
           <hr class="my-4 sm:my-10">
           <template v-if="isCatalog">
             <div
-              class="fixed z-10 sm:relative bottom-0 left-0 w-full bg-white sm:flex text-center justify-center lg:justify-start"
+              class="fixed z-20 sm:relative bottom-0 left-0 w-full bg-white sm:flex text-center justify-center lg:justify-start"
             >
               <a
                 :href="`https://api.whatsapp.com/send?phone=${whatsappPhone}&text=${whatsappText}`"
@@ -55,10 +55,6 @@
           </template>
 
           <div class="my-4 sm:my-10 text-center lg:text-left">
-            <button class="font-bold">
-              Añadir a lista de deseos
-            </button>
-
             <div class="mt-5">
               <h4 class="font-bold">
                 Comparte este producto
@@ -170,6 +166,79 @@ export default {
       relatedProducts
     }
   },
+  head () {
+    return {
+      title: this.product.name,
+      description: this.product.description,
+      meta: [
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.product.name
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.product.description
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.product.image
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: this.product.name
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.product.name
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.product.description
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.product.image
+        },
+        {
+          hid: 'og:image:secure_url',
+          property: 'og:image:secure_url',
+          content: this.product.image
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.product.name
+        },
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'og:product'
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: '/producto/' + this.product.slug
+        },
+        {
+          hid: 'product:price:amount',
+          name: 'product:price:amount',
+          content: this.product.price.toFixed(2)
+        },
+        {
+          hid: 'product:price:currency',
+          name: 'product:price:currency',
+          content: this.product.currency || 'NIO'
+        }
+      ]
+    }
+  },
   computed: {
     ...mapGetters({
       isCatalog: 'site/isCatalog',
@@ -177,7 +246,11 @@ export default {
     }),
     productURL () {
       if (process.client) {
-        return window.location.hostname + this.$route.fullPath
+        return (
+          window.location.protocol +
+          window.location.hostname +
+          this.$route.fullPath
+        )
       }
       return ''
     },

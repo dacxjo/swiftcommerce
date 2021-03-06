@@ -2,17 +2,19 @@
   <div class="block w-full h-auto shadow rounded items-start relative">
     <n-link :title="data.name" :to="productURL" class="z-10 relative">
       <div class="w-full bg-cover h-64 relative rounded">
-        <button
-          ref="fav"
-          class="absolute top-0 right-0 w-10 h-10 focus:outline-none"
-          @click.prevent="likeTrigger"
-        />
-        <img
-          class="w-full h-full rounded object-cover lg:object-cover"
-          :src="data.image"
-          :alt="data.desc"
-          loading="lazy"
-        >
+        <div class="overflow-hidden w-full h-full relative">
+          <button
+            ref="fav"
+            class="absolute z-20 top-0 right-0 w-10 h-10 focus:outline-none"
+            @click.prevent="likeTrigger"
+          />
+          <img
+            class="w-full h-full rounded object-cover lg:object-cover product-image"
+            :src="data.image"
+            :alt="data.desc"
+            loading="lazy"
+          >
+        </div>
       </div>
     </n-link>
     <div class="p-2">
@@ -82,6 +84,7 @@ export default {
       this.anim.goToAndPlay(75, true)
     }
   },
+
   computed: {
     ...mapGetters({
       isCatalog: 'site/isCatalog',
@@ -130,5 +133,14 @@ export default {
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.product-image {
+  will-change: transform;
+  transition: all 300ms ease;
+}
+
+.product-image:hover {
+  transform: scale(1.3);
 }
 </style>

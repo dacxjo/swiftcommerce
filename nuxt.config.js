@@ -17,6 +17,10 @@ export default {
    */
   head: {
     title: SITE_SETTINGS.site_title || process.env.npm_package_name || '',
+    titleTemplate: '%s - Accesorios Margot',
+    htmlAttrs: {
+      lang: 'es'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -25,6 +29,22 @@ export default {
         name: 'description',
         content:
           SITE_SETTINGS.site_desc || process.env.npm_package_description || ''
+      },
+      {
+        hid: 'og:description',
+        name: 'og:description',
+        content:
+          SITE_SETTINGS.site_desc || process.env.npm_package_description || ''
+      },
+      {
+        hid: 'og:site_name',
+        name: 'og:site_name',
+        content: SITE_SETTINGS.site_title || 'Accesorios Margot'
+      },
+      {
+        hid: 'apple-mobile-web-app-title',
+        name: 'apple-mobile-web-app-title',
+        content: SITE_SETTINGS.site_title || 'Accesorios Margot'
       }
     ],
     link: [
