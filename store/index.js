@@ -8,5 +8,6 @@ export const actions = {
       process.env.CATALOG_MODE ? process.env.CATALOG_MODE === 'true' : false
     )
     await commit('site/setWaNumber', process.env.WHATSAPP_NUMBER)
+    await commit('site/setCurrentDomain', process.env.CURRENT_DOMAIN)
   }
 }

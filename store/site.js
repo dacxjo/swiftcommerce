@@ -3,7 +3,8 @@ export const state = () => ({
   adminLoggedIn: false,
   isCatalog: false,
   waNumber: null,
-  favoritesProducts: []
+  favoritesProducts: [],
+  currentDomain: ''
 })
 
 export const mutations = {
@@ -18,6 +19,9 @@ export const mutations = {
   },
   setWaNumber (state, waNumber) {
     state.waNumber = waNumber
+  },
+  setCurrentDomain (state, domain) {
+    state.currentDomain = domain
   },
   addFavorite (state, newFavorite) {
     state.favoritesProducts.push(newFavorite)
@@ -62,6 +66,9 @@ export const getters = {
   },
   favoritesCount (state) {
     return state.favoritesProducts.length
+  },
+  currentDomain (state) {
+    return state.currentDomain
   }
 }
 

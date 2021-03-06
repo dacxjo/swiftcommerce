@@ -162,15 +162,11 @@ export default {
       .where({ slug: product[0].category })
       .fetch()
 
-    const host = process.server
-      ? req.headers.host
-      : window.location.host.split(':')[0]
-
     return {
       product: product[0],
       category: category[0],
       relatedProducts,
-      pageDomain: `https://${host}`
+      host: store.getters['site/currentDomain']
     }
   },
   head () {
@@ -191,17 +187,17 @@ export default {
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.pageDomain + this.product.image
+          content: this.host + this.product.image
         },
         {
           hid: 'twitter:image:alt',
           name: 'twitter:image:alt',
-          content: this.pageDomain + this.product.image
+          content: this.host + this.product.image
         },
         {
           hid: 'twitter:url',
           name: 'twitter:url',
-          content: this.pageDomain + this.$route.path
+          content: this.host + this.$route.path
         },
         {
           hid: 'twitter:card',
@@ -221,12 +217,12 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.pageDomain + this.product.image
+          content: this.host + this.product.image
         },
         {
           hid: 'og:image:secure_url',
           propproperty: 'og:image:secure_url',
-          content: this.pageDomain + this.product.image
+          content: this.host + this.product.image
         },
         {
           hid: 'og:image:alt',
@@ -241,7 +237,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: this.pageDomain + this.$route.path
+          content: this.host + this.$route.path
         },
         {
           hid: 'product:price:amount',
