@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mb-10 sm:mb-0">
     <div class="flex justify-between mb-5">
       <shop-sort-by @sortBy="setSortMethod" />
       <span

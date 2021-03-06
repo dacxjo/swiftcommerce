@@ -89,7 +89,7 @@
           <Nuxt />
         </section>
 
-        <section class="w-full mt-16 bg-gray-200 h-64" />
+        <section class="w-full mt-16 banner h-64" />
       </template>
     </main>
 
@@ -155,5 +155,16 @@ export default {
 .home-enter,
 .home-leave-active {
   opacity: 0;
+}
+
+.banner {
+  background: url('@/assets/images/banner-pattern.jpg');
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-size: auto;
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: 50%;
 }
 </style>
