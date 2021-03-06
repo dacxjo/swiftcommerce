@@ -1,6 +1,6 @@
 <template>
-  <footer class="w-full h-auto sm:h-16  flex items-center">
-    <div class="w-full bg-white ">
+  <footer class="w-full h-auto sm:h-16 flex items-center">
+    <div class="w-full bg-white">
       <div class="container mx-auto h-full w-full">
         <ul
           class="flex flex-col items-center py-5 sm:py-0 sm:flex-row justify-between h-full w-full"
@@ -12,7 +12,9 @@
               {{ $store.getters['site/getSiteTitle'] }}</span>
           </li>
           <li>
-            <span class="text-sm text-gray-700"> Swiftcommerce </span>
+            <span class="text-sm text-gray-700">{{
+              $store.getters['site/getSiteTitle']
+            }}</span>
           </li>
           <li>
             <n-link class="text-sm text-gray-700" to="/terminos">

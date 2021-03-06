@@ -13,9 +13,10 @@
             {{ product.name }}
           </h1>
           <span class="text-gray-800 font-light text-center lg:text-left">
-            <span class="text-gray-700 text-sm font-light">{{
-              category.name
-            }}</span></span>
+            <n-link
+              :to="`/categoria/${category.slug}`"
+              class="text-gray-700 text-sm font-light"
+            >{{ category.name }}</n-link></span>
           <span
             class="text-3xl font-bold text-yellow-600 text-center lg:text-left"
           >{{ product.price }} €</span>
@@ -127,14 +128,16 @@
         </div>
       </div>
     </section>
-    <section class="container mx-auto mt-10">
-      <h2 class="text-center text-4xl font-bold">
-        Productos similares
+    <section class="container mx-auto mt-10 flex flex-col items-center">
+      <h2
+        class="text-center text-4xl font-bold margot-heading relative z-10 w-auto"
+      >
+        Productos relacionados
       </h2>
 
       <template v-if="relatedProducts.length > 0">
         <div class="px-10 lg:px-0 mt-5">
-          <product-list :product-list="relatedProducts" />
+          <shop-product-list :product-list="relatedProducts" />
         </div>
       </template>
     </section>

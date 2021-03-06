@@ -2,7 +2,8 @@ export const state = () => ({
   siteSettings: {},
   adminLoggedIn: false,
   isCatalog: false,
-  whatsappNumber: null
+  waNumber: null,
+  favoritesProducts: []
 })
 
 export const mutations = {
@@ -17,6 +18,9 @@ export const mutations = {
   },
   setWaNumber (state, waNumber) {
     state.waNumber = waNumber
+  },
+  addFavorite (state, newFavorite) {
+    state.favoritesProducts.push(newFavorite)
   }
 }
 
@@ -47,6 +51,12 @@ export const getters = {
   },
   waNumber (state) {
     return state.waNumber
+  },
+  favoritesProducts (state) {
+    return state.favoritesProducts
+  },
+  favoritesCount (state) {
+    return state.favoritesProducts.length
   }
 }
 

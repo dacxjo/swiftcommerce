@@ -2,6 +2,11 @@
   <div class="block w-full h-auto shadow rounded items-start relative">
     <n-link :title="data.name" :to="productURL" class="z-10 relative">
       <div class="w-full bg-cover h-64 relative rounded">
+        <button
+          ref="fav"
+          class="absolute top-0 right-0 w-10 h-10 focus:outline-none"
+          @click.prevent="likeTrigger"
+        />
         <img
           class="w-full h-full rounded object-cover lg:object-cover"
           :src="data.image"
@@ -19,7 +24,11 @@
         <span
           class="text-base text-gray-900 tracking-widest font-semibold"
         >{{ data.price }}€</span>
-        <button class="flex text-xs font-light" @click="addToCart">
+        <button
+          v-if="!isCatalog"
+          class="flex text-xs font-light"
+          @click="addToCart"
+        >
           <img
             class="w-4 mr-2"
             loading="lazy"
@@ -34,6 +43,9 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import lottie from 'lottie-web'
+import * as animation from '@/static/lottie/like.json'
 export default {
   name: 'Product',
   props: {
@@ -42,18 +54,62 @@ export default {
       required: true
     }
   },
+  data () {
+    return {
+      anim: null,
+      isLiked: false
+    }
+  },
+  mounted () {
+    this.anim = lottie.loadAnimation({
+      container: this.$refs.fav, // the dom element that will contain the animation
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      animationData: JSON.parse(JSON.stringify(animation.default))
+    })
+
+    this.checkLiked()
+
+    if (this.isLiked) {
+      this.anim.goToAndPlay(75, true)
+    }
+  },
   computed: {
+    ...mapGetters({
+      isCatalog: 'site/isCatalog',
+      favoritesProducts: 'site/favoritesProducts'
+    }),
     productURL () {
       return `/producto/${this.data.slug}`
     }
   },
+
   methods: {
+    checkLiked () {
+      for (const p of this.favoritesProducts) {
+        if (p.data.id === this.data.id) {
+          this.isLiked = true
+        }
+      }
+    },
     addToCart () {
       this.$nuxt.$emit('adding-to-cart')
       this.$store.commit('shop/addToCart', {
         quantity: 1,
         data: this.data
       })
+    },
+    likeTrigger () {
+      if (this.isLiked) {
+        this.anim.stop()
+      } else {
+        this.anim.play()
+        this.$store.commit('site/addFavorite', {
+          data: this.data
+        })
+      }
+      this.isLiked = !this.isLiked
     }
   }
 }

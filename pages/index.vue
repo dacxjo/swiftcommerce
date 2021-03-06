@@ -1,7 +1,7 @@
 <template>
   <div class="col-span-3 sm:col-span-4 lg:col-span-3">
     <template v-if="filteredProducts.length">
-      <product-list :product-list="filteredProducts" />
+      <shop-product-list :product-list="filteredProducts" />
     </template>
     <template v-else>
       <p>No se han encontrado resultados</p>

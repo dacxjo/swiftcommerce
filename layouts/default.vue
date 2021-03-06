@@ -11,9 +11,9 @@
           <!--TODO: Make search and filter a component -->
           <aside class="w-full h-96 col-span-1 hidden lg:block sticky calc-top">
             <div class="flex-col flex">
-              <h3 class="text-lg text-black font-normal tracking-widest">
+              <span class="text-lg text-black font-normal tracking-widest">
                 Buscar
-              </h3>
+              </span>
               <input
                 class="border-b border-r border-gray-300 focus:outline-none mt-2 text-gray-500"
                 type="text"
@@ -93,7 +93,7 @@
       </template>
     </main>
 
-    <shopping-cart-list v-if="$store.getters['shop/getToggleCartList']" />
+    <shop-shopping-cart-list v-if="$store.getters['shop/getToggleCartList']" />
     <page-footer />
   </div>
 </template>

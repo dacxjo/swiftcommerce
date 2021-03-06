@@ -11,7 +11,10 @@
       </n-link>
       <ul class="flex items-center">
         <li>
-          <shopping-cart />
+          <shop-wish-list />
+        </li>
+        <li v-if="isCatalog">
+          <shop-shopping-cart />
         </li>
       </ul>
     </div>
@@ -19,8 +22,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  computed: {
+    ...mapGetters({
+      isCatalog: 'site/isCatalog'
+    })
+  }
 }
 </script>
 

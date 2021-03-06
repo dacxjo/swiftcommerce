@@ -1,0 +1,34 @@
+.margot-heading::before {
+  content: '';
+  width: 100%;
+  height: 30%;
+  z-index: -1;
+  bottom: 10px;
+  @apply bg-yellow-300;
+  @apply absolute;
+}
+
+.flamenco {
+  font-family: 'Flamenco' !important;
+}
+
+.proza-libre {
+  font-family: 'Proza Libre';
+}
+
+.open-sans {
+  font-family: 'Open Sans';
+}
+
+button:focus {
+  @apply outline-none;
+}
+
+h1,
+h2 {
+  font-family: 'Proza Libre';
+}
+
+*:not(h1, h2) {
+  font-family: 'Open Sans';
+}

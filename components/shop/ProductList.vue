@@ -1,11 +1,10 @@
 <template>
   <div>
     <div class="flex justify-between mb-5">
-      <sort-by @sortBy="setSortMethod" />
+      <shop-sort-by @sortBy="setSortMethod" />
       <span
         class="text-xs font-light text-gray-700"
-      >Mostrando {{ productList.length }} de
-        {{ productList.length }} productos</span>
+      >{{ productList.length }} de {{ productList.length }} productos</span>
     </div>
 
     <transition-group
@@ -14,13 +13,16 @@
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10"
       name="list-complete"
     >
-      <product
+      <shop-product
         v-for="product in sortedProductList"
         :key="product.slug"
         class="list-complete-item"
         :data="product"
       />
-      <product-placeholder v-if="$store.getters['site/adminLoggedIn']" key="placeholder" />
+      <shop-placeholders-product-placeholder
+        v-if="$store.getters['site/adminLoggedIn']"
+        key="placeholder"
+      />
     </transition-group>
   </div>
 </template>
@@ -88,7 +90,7 @@ export default {
 }
 </script>
 
-<style  scoped>
+<style scoped>
 .list-complete-item {
   transition: all 300ms;
 

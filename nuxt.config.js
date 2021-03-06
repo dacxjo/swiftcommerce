@@ -42,12 +42,12 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@/assets/css/global.css'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: [{ src: '~/plugins/vuex-persist', ssr: false }],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -68,8 +68,19 @@ export default {
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
     '@nuxtjs/markdownit',
-    'vue-social-sharing/nuxt'
+    'vue-social-sharing/nuxt',
+    '@nuxtjs/google-fonts'
   ],
+  /*
+   ** Google fonts module configuration
+   */
+  googleFonts: {
+    families: {
+      'Proza+Libre': true,
+      'Open+Sans': true,
+      Flamenco: true
+    }
+  },
   /*
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration
@@ -82,5 +93,7 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {}
+  build: {
+    transpile: ['vuex-persist']
+  }
 }

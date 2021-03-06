@@ -6,15 +6,14 @@
     <div
       class="container mx-auto flex flex-col justify-center items-center p-4 lg:p-0"
     >
+      <p
+        class="text-center text-2xl font-bold relative margot-heading flamenco z-10 block"
+      >
+        {{ heroDesc }}
+      </p>
       <h1 class="font-bold text-5xl lg:text-6xl text-center">
         {{ heroTitle }}
       </h1>
-      <p class="text-center">
-        {{ heroDesc }}
-      </p>
-      <n-link to="/" class="bg-black text-white p-2 mt-4">
-        Button text
-      </n-link>
     </div>
   </section>
 </template>

@@ -3,7 +3,7 @@
     <netlify-admin-bar v-if="$store.getters['site/adminLoggedIn']" />
     <navbar ref="navbar" />
     <nuxt />
-    <shopping-cart-list v-if="$store.getters['shop/getToggleCartList']" />
+    <shop-shopping-cart-list v-if="$store.getters['shop/getToggleCartList']" />
     <page-footer />
   </div>
 </template>

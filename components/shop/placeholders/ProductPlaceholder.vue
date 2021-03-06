@@ -1,10 +1,14 @@
 <template>
   <div
-    class="block w-full h-auto border border-gray-500 rounded items-start relative"
+    class="block w-full h-full border border-gray-500 rounded items-start relative"
   >
-    <a href="/admin/#/collections/productos" title="Agrega un producto" class="z-10 relative">
+    <a
+      href="/admin/#/collections/productos"
+      title="Agrega un producto"
+      class="z-10 relative"
+    >
       <div
-        class="w-full bg-cover h-64 flex items-center justify-center relative rounded"
+        class="w-full bg-cover h-full flex items-center justify-center relative rounded"
       >
         <img
           class="w-16 h-16 opacity-25"
@@ -14,13 +18,5 @@
         >
       </div>
     </a>
-    <div class="p-2">
-      <span
-        class="py-2 text-sm font-normal whitespace-no-wrap t-overflow text-gray-900"
-      />
-      <div class="flex justify-between w-full items-center">
-        <span class="text-base font-bold text-yellow-500" />
-      </div>
-    </div>
   </div>
 </template>
