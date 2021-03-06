@@ -162,11 +162,13 @@ export default {
       .where({ slug: product[0].category })
       .fetch()
 
+    const host = req ? req.headers.host : window.location.host.split(':')[0]
+
     return {
       product: product[0],
       category: category[0],
       relatedProducts,
-      pageDomain: `https://${req.headers.host}`
+      pageDomain: `https://${host}`
     }
   },
   head () {
