@@ -1,6 +1,7 @@
 <template>
   <main class="py-0 sm:py-24 md:py-32">
     <section class="container mx-auto">
+      <breadcrumb :title="product.name" />
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-4">
         <img
           class="w-full object-cover h-full border border-gray-300"
@@ -145,7 +146,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'ProductPage',
   layout: 'single',
-  async asyncData ({ $content, store, params }) {
+  async asyncData ({ $content, store, params, req }) {
     const product = await $content('productos')
       .where({ slug: params.slug })
       .fetch()
@@ -160,10 +161,12 @@ export default {
     const category = await $content('categorias')
       .where({ slug: product[0].category })
       .fetch()
+
     return {
       product: product[0],
       category: category[0],
-      relatedProducts
+      relatedProducts,
+      pageDomain: `https://${req.headers.host}`
     }
   },
   head () {
@@ -173,23 +176,33 @@ export default {
       meta: [
         {
           hid: 'twitter:title',
-          property: 'twitter:title',
+          name: 'twitter:title',
           content: this.product.name
         },
         {
           hid: 'twitter:description',
-          property: 'twitter:description',
+          name: 'twitter:description',
           content: this.product.description
         },
         {
           hid: 'twitter:image',
-          property: 'twitter:image',
-          content: this.product.image
+          name: 'twitter:image',
+          content: this.pageDomain + this.product.image
         },
         {
           hid: 'twitter:image:alt',
-          property: 'twitter:image:alt',
-          content: this.product.name
+          name: 'twitter:image:alt',
+          content: this.pageDomain + this.product.image
+        },
+        {
+          hid: 'twitter:url',
+          name: 'twitter:url',
+          content: this.pageDomain + this.$route.path
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary'
         },
         {
           hid: 'og:title',
@@ -204,12 +217,12 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.product.image
+          content: this.pageDomain + this.product.image
         },
         {
           hid: 'og:image:secure_url',
           propproperty: 'og:image:secure_url',
-          content: this.product.image
+          content: this.pageDomain + this.product.image
         },
         {
           hid: 'og:image:alt',
@@ -224,7 +237,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: '/producto/' + this.product.slug
+          content: this.pageDomain + this.$route.path
         },
         {
           hid: 'product:price:amount',
