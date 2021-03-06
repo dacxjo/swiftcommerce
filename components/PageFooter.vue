@@ -1,5 +1,5 @@
 <template>
-  <footer class="w-full h-auto sm:h-16 flex items-center">
+  <footer class="w-full h-64 sm:h-16 flex items-center">
     <div class="w-full bg-white">
       <div class="container mx-auto h-full w-full">
         <ul

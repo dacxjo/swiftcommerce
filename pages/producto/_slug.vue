@@ -126,7 +126,7 @@
     </section>
     <section class="container mx-auto mt-10 flex flex-col items-center">
       <h2
-        class="text-center text-4xl font-bold margot-heading relative z-10 w-auto"
+        class="text-center text-4xl font-bold margot-heading margot-heading-double relative z-10 w-auto"
       >
         Productos relacionados
       </h2>
@@ -173,67 +173,67 @@ export default {
       meta: [
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: this.product.name
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: this.product.description
         },
         {
           hid: 'twitter:image',
-          name: 'twitter:image',
+          property: 'twitter:image',
           content: this.product.image
         },
         {
           hid: 'twitter:image:alt',
-          name: 'twitter:image:alt',
+          property: 'twitter:image:alt',
           content: this.product.name
         },
         {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: this.product.name
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: this.product.description
         },
         {
           hid: 'og:image',
-          name: 'og:image',
+          property: 'og:image',
           content: this.product.image
         },
         {
           hid: 'og:image:secure_url',
-          property: 'og:image:secure_url',
+          propproperty: 'og:image:secure_url',
           content: this.product.image
         },
         {
           hid: 'og:image:alt',
-          property: 'og:image:alt',
+          propproperty: 'og:image:alt',
           content: this.product.name
         },
         {
           hid: 'og:type',
-          name: 'og:type',
+          property: 'og:type',
           content: 'og:product'
         },
         {
           hid: 'og:url',
-          name: 'og:url',
+          property: 'og:url',
           content: '/producto/' + this.product.slug
         },
         {
           hid: 'product:price:amount',
-          name: 'product:price:amount',
+          property: 'product:price:amount',
           content: this.product.price.toFixed(2)
         },
         {
           hid: 'product:price:currency',
-          name: 'product:price:currency',
+          property: 'product:price:currency',
           content: this.product.currency || 'NIO'
         }
       ]

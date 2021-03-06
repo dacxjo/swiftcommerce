@@ -32,3 +32,18 @@ h2 {
 *:not(h1, h2) {
   font-family: 'Open Sans';
 }
+
+@media (max-width: 640px) {
+  .margot-heading-double::before {
+    content: '';
+    width: 90%;
+    height: 40%;
+    z-index: -1;
+    bottom: 10px;
+    --bg-opacity: 1;
+    background-color: #faf089;
+    background-color: rgba(250, 240, 137, var(--bg-opacity));
+    position: absolute;
+    left: 0;
+  }
+}

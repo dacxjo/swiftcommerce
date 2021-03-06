@@ -56,4 +56,10 @@ export default {
   justify-content: flex-end;
   background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), white);
 }
+
+@media (max-width: 640px) {
+  .delete-fav {
+    opacity: 1;
+  }
+}
 </style>
