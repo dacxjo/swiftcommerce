@@ -12,7 +12,7 @@
     </nuxt-link>
 
     <div class="delete-fav">
-      <button>
+      <button @click="removeFavorite">
         <img
           class="w-6"
           loading="lazy"
@@ -27,7 +27,15 @@
 <script>
 export default {
   name: 'FavoriteItem',
-  props: ['product']
+  props: ['product'],
+  methods: {
+    removeFavorite () {
+      this.$store.commit('site/removeFromFavorites', this.product)
+      this.$nuxt.$emit('removed-fav', {
+        removed: this.product
+      })
+    }
+  }
 }
 </script>
 

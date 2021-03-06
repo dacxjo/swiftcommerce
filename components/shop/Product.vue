@@ -71,6 +71,13 @@ export default {
 
     this.checkLiked()
 
+    this.$nuxt.$on('removed-fav', (payload) => {
+      if (payload.removed.data.id === this.data.id) {
+        this.isLiked = false
+        this.anim.stop()
+      }
+    })
+
     if (this.isLiked) {
       this.anim.goToAndPlay(75, true)
     }
@@ -103,6 +110,9 @@ export default {
     likeTrigger () {
       if (this.isLiked) {
         this.anim.stop()
+        this.$store.commit('site/removeFromFavorites', {
+          data: this.data
+        })
       } else {
         this.anim.play()
         this.$store.commit('site/addFavorite', {

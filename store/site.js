@@ -21,6 +21,11 @@ export const mutations = {
   },
   addFavorite (state, newFavorite) {
     state.favoritesProducts.push(newFavorite)
+  },
+  removeFromFavorites (state, item) {
+    state.favoritesProducts = state.favoritesProducts.filter(
+      i => i.data.id !== item.data.id
+    )
   }
 }
 

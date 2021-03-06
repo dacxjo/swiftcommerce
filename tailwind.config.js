@@ -1,17 +1,18 @@
 /*
-** TailwindCSS Configuration File
-**
-** Docs: https://tailwindcss.com/docs/configuration
-** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
-*/
+ ** TailwindCSS Configuration File
+ **
+ ** Docs: https://tailwindcss.com/docs/configuration
+ ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
+ */
 module.exports = {
+  darkMode: 'class',
   theme: {
-    extend:{
+    extend: {
       spacing: {
-             '72': '18rem',
-             '84': '21rem',
-             '96': '24rem',
-        }
+        72: '18rem',
+        84: '21rem',
+        96: '24rem'
+      }
     }
   },
   variants: {},
