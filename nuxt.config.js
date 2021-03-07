@@ -54,7 +54,7 @@ export default {
       {
         hid: 'theme-color',
         name: 'theme-color',
-        content: '#000000'
+        content: '#FFFFFF'
       }
     ],
     link: [
