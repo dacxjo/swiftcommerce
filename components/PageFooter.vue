@@ -9,7 +9,7 @@
         >
           <li class="flex justify-center sm:justify-start">
             <template v-if="siteLogo">
-              <img :src="logoIcon" class="w-10 object-cover" alt="">
+              <img :src="logoIcon" class="w-10 h-10 object-cover" alt="">
             </template>
             <template v-else>
               <span class="text-sm text-white">{{
