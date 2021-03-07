@@ -25,7 +25,7 @@
       <div class="flex justify-between w-full items-center">
         <span
           class="text-base text-gray-900 tracking-widest font-semibold"
-        >{{ data.price }}{{ data.currency || 'C$' }}</span>
+        >{{ data.price }}{{ data.currency | currencyFilter }}</span>
         <button
           v-if="!isCatalog"
           class="flex text-xs font-light"
@@ -50,6 +50,20 @@ import lottie from 'lottie-web'
 import * as animation from '@/static/lottie/like.json'
 export default {
   name: 'Product',
+  filters: {
+    currencyFilter (value) {
+      switch (value) {
+        case 'NIO':
+          return 'C$'
+        case 'USD':
+          return '$'
+        case 'EUR':
+          return '€'
+        default:
+          return 'C$'
+      }
+    }
+  },
   props: {
     data: {
       type: Object,

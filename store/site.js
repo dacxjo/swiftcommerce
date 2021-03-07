@@ -52,6 +52,12 @@ export const getters = {
   getHeroImg (state) {
     return state.siteSettings.hero_image ? state.siteSettings.hero_image : ''
   },
+  getSiteLogo (state) {
+    return state.siteSettings.logo || null
+  },
+  getLogoIcon (state) {
+    return state.siteSettings.logo_icon || null
+  },
   adminLoggedIn (state) {
     return state.adminLoggedIn
   },

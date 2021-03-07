@@ -7,7 +7,12 @@
       class="container mx-auto flex justify-between items-center px-4 lg:px-0"
     >
       <n-link class="text-2xl font-bold" to="/">
-        {{ $store.getters['site/getSiteTitle'] }}
+        <template v-if="siteLogo">
+          <img :src="siteLogo" class="w-32 object-cover" alt="">
+        </template>
+        <template v-else>
+          {{ $store.getters['site/getSiteTitle'] }}
+        </template>
       </n-link>
       <ul class="flex items-center">
         <li>
@@ -27,7 +32,8 @@ export default {
   name: 'Navbar',
   computed: {
     ...mapGetters({
-      isCatalog: 'site/isCatalog'
+      isCatalog: 'site/isCatalog',
+      siteLogo: 'site/getSiteLogo'
     })
   }
 }

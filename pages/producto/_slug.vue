@@ -20,7 +20,7 @@
             >{{ category.name }}</n-link></span>
           <span
             class="text-3xl font-bold text-yellow-600 text-center lg:text-left"
-          >{{ product.price }} {{ product.currency || 'C$' }}</span>
+          >{{ product.price }} {{ product.currency | currencyFilter }}</span>
           <hr class="my-4 sm:my-10">
           <p class="text-gray-800 text-lg leading-7 text-center lg:text-left">
             {{ product.description }}
@@ -33,7 +33,6 @@
               <a
                 :href="`https://api.whatsapp.com/send?phone=${whatsappPhone}&text=${whatsappText}`"
                 class="bg-black w-full flex justify-center items-center h-12 md:block md:w-auto md:leading-none text-white py-4 px-12"
-                @click="addToCart"
               >
                 Preguntar por este producto
               </a>
@@ -146,6 +145,20 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'ProductPage',
   layout: 'single',
+  filters: {
+    currencyFilter (value) {
+      switch (value) {
+        case 'NIO':
+          return 'C$'
+        case 'USD':
+          return '$'
+        case 'EUR':
+          return '€'
+        default:
+          return 'C$'
+      }
+    }
+  },
   async asyncData ({ $content, store, params, req }) {
     const product = await $content('productos')
       .where({ slug: params.slug })
