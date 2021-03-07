@@ -274,6 +274,7 @@ export default {
       if (process.client) {
         return (
           window.location.protocol +
+          '//' +
           window.location.hostname +
           this.$route.fullPath
         )

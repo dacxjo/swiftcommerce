@@ -45,11 +45,40 @@ export default {
         hid: 'apple-mobile-web-app-title',
         name: 'apple-mobile-web-app-title',
         content: SITE_SETTINGS.site_title || 'Accesorios Margot'
+      },
+      {
+        hid: 'application-name',
+        name: 'application-name',
+        content: SITE_SETTINGS.site_title || 'Accesorios Margot'
+      },
+      {
+        hid: 'theme-color',
+        name: 'theme-color',
+        content: '#000000'
       }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'author', href: '/humans.txt' }
+      { rel: 'author', href: '/humans.txt' },
+      { rel: 'manifest', href: '/site.webmanifest' },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/favicon-32x32.png'
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/favicon-16x16.png'
+      },
+      { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#000000' },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/apple-touch-icon.png'
+      }
     ],
     script: [
       {

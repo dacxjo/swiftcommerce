@@ -3,7 +3,7 @@
     <ul vocab="http://schema.org/" typeof="BreadcrumbList" class="flex">
       <li property="itemListElement" typeof="ListItem">
         <n-link property="item" typeof="WebPage" to="/">
-          <span property="name">Inicio</span>
+          <span property="name" class="text-xs">Inicio</span>
         </n-link>
         <span>/</span>
         <meta property="position" content="1">
@@ -15,7 +15,7 @@
         typeof="ListItem"
       >
         <n-link property="item" typeof="WebPage" :to="crumb.path">
-          <span property="name">{{
+          <span property="name" class="text-xs">{{
             $route.fullPath === crumb.path && title !== null
               ? title
               : crumb.title
