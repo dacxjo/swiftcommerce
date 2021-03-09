@@ -6,7 +6,6 @@
   from = "/producto"
   to = "/"
   status = 301
-[[plugins]]
-  package = "netlify-plugin-image-optim"
+
 
 
